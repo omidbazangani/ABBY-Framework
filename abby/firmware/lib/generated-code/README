@@ -1,0 +1,5 @@
+This lib is part of Abby framework.
+It generated random assembly instruction to create training data.
+
+Some instructions are not present in generated assembly because they are
+branching or interfering with program execution.

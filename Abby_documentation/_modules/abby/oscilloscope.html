@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.oscilloscope &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.oscilloscope</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.oscilloscope</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Oscilloscope abstraction layer.</span>
+
+<span class="sd">This module automates traces acquisition process.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Oscilloscope"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Oscilloscope">[docs]</a><span class="k">class</span> <span class="nc">Oscilloscope</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Common interface for oscilloscope</span>
+
+<span class="sd">    This class can be used as a context manager such as</span>
+<span class="sd">    ``with Oscilloscope(param) as osc:``. Doing this will automatically close</span>
+<span class="sd">    connection on error.</span>
+
+<span class="sd">    All oscilloscopes should inherit this base class to get a common</span>
+<span class="sd">    abstraction layer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize an oscilloscope&quot;&quot;&quot;</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connecting&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For use with context manager.</span>
+
+<span class="sd">        :return: oscilloscope object</span>
+<span class="sd">        :rtype: Oscilloscope</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Called on context close.&quot;&quot;&quot;</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Closing connection&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Oscilloscope.close"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Oscilloscope.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close connection&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Oscilloscope.arm"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Oscilloscope.arm">[docs]</a>    <span class="k">def</span> <span class="nf">arm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Arm to acquire next trigger&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Oscilloscope.get_trace"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Oscilloscope.get_trace">[docs]</a>    <span class="k">def</span> <span class="nf">get_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trigger_crop</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download acquired data and return side channel trace</span>
+
+<span class="sd">        Trace will be a numpy array with float64 samples.</span>
+
+<span class="sd">        :param trigger_crop: crop trace using trigger signal, defaults to True</span>
+<span class="sd">        :type trigger_crop: bool, optional</span>
+<span class="sd">        :return: acquired trace and clock</span>
+<span class="sd">        :rtype: (np.ndarray, np.ndarray)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Oscilloscope.run_and_acquire"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Oscilloscope.run_and_acquire">[docs]</a>    <span class="k">def</span> <span class="nf">run_and_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_txt</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">output_len</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">serial</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Acquire a trace with clock while an algorithm is running</span>
+
+<span class="sd">        Arm the oscilloscope, send input data to serial to trigger and then</span>
+<span class="sd">        wait for returned serial data.</span>
+
+<span class="sd">        Set ``average`` parameter to do multiple acquisitions and reduce noise.</span>
+
+<span class="sd">        :param input_txt: input data</span>
+<span class="sd">        :type input_txt: bytes</span>
+<span class="sd">        :param output_len: size of the returned data to expect</span>
+<span class="sd">        :type output_len: int</span>
+<span class="sd">        :param serial: serial device</span>
+<span class="sd">        :type serial: serial.Serial</span>
+<span class="sd">        :param average: amount of acquisitions to average, default to 1</span>
+<span class="sd">        :type average: int, optional</span>
+<span class="sd">        :raises IndexError: if timeout when waiting for message</span>
+<span class="sd">        :return: received message and acquired trace and clock</span>
+<span class="sd">        :rtype: (bytes, np.ndarray, np.ndarray)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">traces</span><span class="p">,</span> <span class="n">clocks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">average</span><span class="p">):</span>
+            <span class="c1"># Arm scope then send input_txt to trigger acquisition</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Arm picoscope and send input text: </span><span class="si">{</span><span class="n">input_txt</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arm</span><span class="p">()</span>
+            <span class="n">serial</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">input_txt</span><span class="p">)</span>
+
+            <span class="c1"># Receive output text</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Waiting for </span><span class="si">{</span><span class="n">output_len</span><span class="si">}</span><span class="s2"> bytes from serial&quot;</span><span class="p">)</span>
+            <span class="n">output_txt</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">output_len</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timeout while receiving </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">-th byte&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+                <span class="n">output_txt</span> <span class="o">+=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">b</span><span class="p">])</span>
+
+            <span class="c1"># Download power trace from the oscilloscope</span>
+            <span class="n">trace</span><span class="p">,</span> <span class="n">clock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_trace</span><span class="p">()</span>
+            <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+            <span class="n">clocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span>
+
+        <span class="c1"># Return average, crop to smallest trace</span>
+        <span class="n">min_length</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">])</span>
+        <span class="n">traces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">[:</span><span class="n">min_length</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">])</span>
+        <span class="n">clocks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">[:</span><span class="n">min_length</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">clocks</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">output_txt</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">traces</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">clocks</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Chipwhisperer"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Chipwhisperer">[docs]</a><span class="k">class</span> <span class="nc">Chipwhisperer</span><span class="p">(</span><span class="n">Oscilloscope</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Chipwhisperer Nano, Lite and Pro support.</span>
+
+<span class="sd">    See &lt;https://chipwhisperer.readthedocs.io/en/latest/api.html&gt; for API</span>
+<span class="sd">    documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize Chipwhisperer.</span>
+
+<span class="sd">        :param type: scope type to connect to. Types</span>
+<span class="sd">            can be found in chipwhisperer.scopes module. Defaults to auto.</span>
+<span class="sd">        :type type: ScopeTemplate, optional</span>
+<span class="sd">        :param sn: serial number to connect to. Defaults to auto.</span>
+<span class="sd">        :type sn: str, optional</span>
+<span class="sd">        :raises ImportError: if chipwhisperer module is missing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">chipwhisperer</span> <span class="kn">import</span> <span class="n">scope</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;You need to install chipwhisperer module.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Init OpenADC or CWNano with sane defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span> <span class="o">=</span> <span class="n">scope</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">,</span> <span class="n">sn</span><span class="o">=</span><span class="n">sn</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">default_setup</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Chipwhisperer.close"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Chipwhisperer.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close connection&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">dis</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Chipwhisperer.arm"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Chipwhisperer.arm">[docs]</a>    <span class="k">def</span> <span class="nf">arm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Arm to acquire next trigger&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">arm</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Chipwhisperer.get_trace"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.Chipwhisperer.get_trace">[docs]</a>    <span class="k">def</span> <span class="nf">get_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download acquired data and return side channel trace</span>
+
+<span class="sd">        Trace will be a numpy array with float64 samples.</span>
+
+<span class="sd">        :return: acquired trace</span>
+<span class="sd">        :rtype: np.ndarray</span>
+<span class="sd">        :raises TimeoutError: if acquisition timed out</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Wait for oscilloscope to be ready</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Waiting for acquisition&quot;</span><span class="p">)</span>
+        <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">capture</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="s2">&quot;Acquisition timed out.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Download data</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Downloading traces&quot;</span><span class="p">)</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scope</span><span class="o">.</span><span class="n">get_last_trace</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">trace</span></div></div>
+
+
+<div class="viewcode-block" id="PS3000a"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.PS3000a">[docs]</a><span class="k">class</span> <span class="nc">PS3000a</span><span class="p">(</span><span class="n">Oscilloscope</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstraction on top of colinoflynn/pico-python for Picoscope 3000a series</span>
+
+<span class="sd">    We consider that signal is measured on channel A,</span>
+<span class="sd">    external clock on channel B and trigger on channel EXT.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">signal_range</span><span class="o">=</span><span class="mf">50e-3</span><span class="p">,</span> <span class="n">clock_range</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">sample_interval</span><span class="o">=</span><span class="mf">4e-9</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">2e-3</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize Picoscope 3000a series</span>
+
+<span class="sd">        :param signal_range: range of channel A, defaults to 50 mV</span>
+<span class="sd">        :type signal_range: float, optional</span>
+<span class="sd">        :param clock_range: range of channel B, defaults to 2.0 V</span>
+<span class="sd">        :type clock_range: float, optional</span>
+<span class="sd">        :param sample_interval: time interval between samples in seconds,</span>
+<span class="sd">            defaults to 4 ns</span>
+<span class="sd">        :type sample_interval: float, optional</span>
+<span class="sd">        :param sample_interval: time duration of the acquisition, defaults to</span>
+<span class="sd">            2 ms</span>
+<span class="sd">        :type sample_interval: float, optional</span>
+<span class="sd">        :raises ImportError: if picoscope module is missing</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">picoscope.ps3000a</span> <span class="kn">import</span> <span class="n">PS3000a</span> <span class="k">as</span> <span class="n">ps_PS3000a</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;You need to install picoscope module.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span> <span class="o">=</span> <span class="n">ps_PS3000a</span><span class="p">()</span>
+
+        <span class="c1"># Channel A is connected to the current probe</span>
+        <span class="c1"># Channel B is connected to the clock</span>
+        <span class="c1"># Channel EXT is connected to the trigger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">setChannel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">,</span> <span class="n">VRange</span><span class="o">=</span><span class="n">signal_range</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">setChannel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">coupling</span><span class="o">=</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="n">VRange</span><span class="o">=</span><span class="n">clock_range</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">setSimpleTrigger</span><span class="p">(</span><span class="s2">&quot;External&quot;</span><span class="p">,</span> <span class="n">threshold_V</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+        <span class="c1"># One capture at a time and allocate all memory to this acquisition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">setNoOfCaptures</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">memorySegments</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Set sample interval and total acquisition time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">setSamplingInterval</span><span class="p">(</span><span class="n">sample_interval</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PS3000a.close"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.PS3000a.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close connection&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="PS3000a.arm"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.PS3000a.arm">[docs]</a>    <span class="k">def</span> <span class="nf">arm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Arm to acquire next trigger</span>
+
+<span class="sd">        Sleep 100ms to make sure the device armed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">runBlock</span><span class="p">()</span>
+
+        <span class="c1"># Wait a bit for arming process</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PS3000a.get_trace"><a class="viewcode-back" href="../../modules/extra/oscilloscope.html#abby.oscilloscope.PS3000a.get_trace">[docs]</a>    <span class="k">def</span> <span class="nf">get_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Download acquired data and return side channel trace</span>
+
+<span class="sd">        Trace will be a numpy array with float64 samples.</span>
+
+<span class="sd">        :return: acquired trace and clock</span>
+<span class="sd">        :rtype: (np.ndarray, np.ndarray)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Wait for oscilloscope to be ready</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Waiting for acquisition&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">waitReady</span><span class="p">()</span>
+
+        <span class="c1"># Download data from channel A and B</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Downloading traces&quot;</span><span class="p">)</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">getDataV</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+        <span class="n">clock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ps</span><span class="o">.</span><span class="n">getDataV</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">trace</span><span class="p">,</span> <span class="n">clock</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

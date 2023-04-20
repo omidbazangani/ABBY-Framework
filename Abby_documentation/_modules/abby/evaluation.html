@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.evaluation &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.evaluation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.evaluation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utilities to evaluate model quality.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ttest"><a class="viewcode-back" href="../../modules/evaluation.html#abby.evaluation.ttest">[docs]</a><span class="k">def</span> <span class="nf">ttest</span><span class="p">(</span><span class="n">trace_set1</span><span class="p">,</span> <span class="n">trace_set2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute Welch&#39;s t-test between two set of traces.</span>
+
+<span class="sd">    When a set contains traces with a constant value at a specific index, the</span>
+<span class="sd">    variance is null and a division by zero occurs. We choose to remplace these</span>
+<span class="sd">    values by 0 as there is no leakage detected.</span>
+
+<span class="sd">    You may use :func:`abby.plot.plot_ttest` to visualize results.</span>
+
+<span class="sd">    For example::</span>
+
+<span class="sd">        &gt;&gt;&gt; import abby</span>
+<span class="sd">        &gt;&gt;&gt; trace_set1 = [[0, 0, 0, 1, 0, 0],</span>
+<span class="sd">        ...               [0, 0, 1, 0, 0, 1]]</span>
+<span class="sd">        &gt;&gt;&gt; trace_set2 = [[0, 0, 0, 1, 1, 0],</span>
+<span class="sd">        ...               [0, 0, 1, 0, 0, 0]]</span>
+<span class="sd">        &gt;&gt;&gt; abby.evaluation.ttest(trace_set1, trace_set2)</span>
+<span class="sd">        array([0.,  0.,  0.,  0., -1.,  1.])</span>
+
+<span class="sd">    :param trace_set1: set of traces</span>
+<span class="sd">    :type trace_set1: [[float]] or np.ndarray</span>
+<span class="sd">    :param trace_set2: set of traces</span>
+<span class="sd">    :type trace_set2: [[float]] or np.ndarray</span>
+<span class="sd">    :return: computed ttest</span>
+<span class="sd">    :rtype: np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Ignore comparison with NaN error</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">trace_set1</span><span class="p">,</span> <span class="n">trace_set2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Replace NaN with 0, NaN happens when sets are constant which is common</span>
+    <span class="c1"># when using models. We choose 0 as replacement as the model does not show</span>
+    <span class="c1"># leakage.</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">t</span></div>
+
+
+<div class="viewcode-block" id="correlation"><a class="viewcode-back" href="../../modules/evaluation.html#abby.evaluation.correlation">[docs]</a><span class="k">def</span> <span class="nf">correlation</span><span class="p">(</span><span class="n">traces</span><span class="p">,</span> <span class="n">reference_samples</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute Pearson correlation coefficient at each index of traces set.</span>
+
+<span class="sd">    To use this function to do a correlation attack, you can compute the Hamming</span>
+<span class="sd">    weight of an intermediate value for each trace as reference_sample.</span>
+
+<span class="sd">    For example::</span>
+
+<span class="sd">        &gt;&gt;&gt; import abby</span>
+<span class="sd">        &gt;&gt;&gt; traces = [[0, 1, 0, 1, 0, 0],</span>
+<span class="sd">        ...           [1, 0, 1, 1, 1, 0],</span>
+<span class="sd">        ...           [0, 0, 1, 0, 0, 1]]</span>
+<span class="sd">        &gt;&gt;&gt; intermediate_values = [0b0, 0b0, 0b1]</span>
+<span class="sd">        &gt;&gt;&gt; def hw(n: int):</span>
+<span class="sd">        ...     return sum((n &gt;&gt; i) &amp; 0b1 for i in range(16))</span>
+<span class="sd">        &gt;&gt;&gt; reference_samples = [hw(i) for i in intermediate_values]</span>
+<span class="sd">        &gt;&gt;&gt; abby.evaluation.correlation(traces, reference_samples)</span>
+<span class="sd">        array([-0.5, -0.5, 0.5, -1.0, -0.5, 1.0])</span>
+
+<span class="sd">    :param traces: traces set</span>
+<span class="sd">    :type traces: [[float]] or np.ndarray</span>
+<span class="sd">    :param reference_samples: reference to correlate, length should match the</span>
+<span class="sd">        number of traces</span>
+<span class="sd">    :type reference_samples: [float] or np.ndarray</span>
+<span class="sd">    :return: correlation result</span>
+<span class="sd">    :rtype: np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute correlation for each sample of all traces</span>
+    <span class="n">length_trace</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traces</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">length_trace</span><span class="p">)</span>
+    <span class="n">traces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">traces</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length_trace</span><span class="p">):</span>
+        <span class="n">trace_samples</span> <span class="o">=</span> <span class="n">traces</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+        <span class="n">corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">trace_samples</span><span class="p">,</span> <span class="n">reference_samples</span><span class="p">)</span>
+
+    <span class="c1"># Replace NaN with 0, NaN happens when sets are constant which is common</span>
+    <span class="c1"># when using models. We choose 0 as replacement as the model does not show</span>
+    <span class="c1"># leakage.</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">corr</span></div>
+
+
+<div class="viewcode-block" id="correlation_bruteforce_key_byte"><a class="viewcode-back" href="../../modules/evaluation.html#abby.evaluation.correlation_bruteforce_key_byte">[docs]</a><span class="k">def</span> <span class="nf">correlation_bruteforce_key_byte</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">input_data</span><span class="p">,</span> <span class="n">inter_func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Correlate samples with all possibles values for key byte.</span>
+
+<span class="sd">    Correlate samples with the Hamming weight of the intermediate values for</span>
+<span class="sd">    all 256 values of the key byte. A key byte leading to a higher correlation</span>
+<span class="sd">    has more probability to be the secret key byte.</span>
+
+<span class="sd">    This function can be used when the evaluator knows the position of the</span>
+<span class="sd">    leakage of one key byte and knows how to compute the intermediate value.</span>
+
+<span class="sd">    You may plot the rank of the good key by the number of traces by repeating</span>
+<span class="sd">    this evaluation with different number of traces.</span>
+
+<span class="sd">    :param samples: samples to attack, one sample per trace</span>
+<span class="sd">    :type samples: [float]</span>
+<span class="sd">    :param input_data: input data used for each trace, passed to inter_func</span>
+<span class="sd">    :type input_data: [any]</span>
+<span class="sd">    :param inter_func: function to compute the intermediate value from</span>
+<span class="sd">        input_data and key</span>
+<span class="sd">    :type inter_func: callable</span>
+<span class="sd">    :return: correlation results for all 256 possibilities</span>
+<span class="sd">    :rtype: np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Make sure we have input data for all traces</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+    <span class="c1"># Bruteforce 256 values for this byte</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key_byte</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+        <span class="c1"># Compute intermediate values when using this key</span>
+        <span class="n">inter_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">inter_func</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">key_byte</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_data</span><span class="p">]</span>
+
+        <span class="c1"># Correlate using Hamming weight</span>
+        <span class="n">inter_samples</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">((</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mb">0b1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">inter_value</span><span class="p">]</span>
+        <span class="n">corr</span><span class="p">[</span><span class="n">key_byte</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">inter_samples</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">corr</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

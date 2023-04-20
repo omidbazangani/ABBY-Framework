@@ -1,0 +1,10 @@
+# Include PlatformIO firmware
+recursive-include abby/firmware *.h *.c *.cpp *.S *.ini *.py *.ld README
+
+# Include documentation
+recursive-include docs *.py *.rst *.sh
+recursive-include docs/_static *.jpg *.svg *.png *.ico *.pdf
+include docs/make.bat docs/Makefile
+
+# Include metadata files
+include .gitlab-ci.yml CONTRIBUTING.md

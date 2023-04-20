@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.model &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.model</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Models fitting and prediction code.</span>
+
+<span class="sd">Abby provides abstraction over common model types to help training them.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abby.model.base</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">abby.model.catboost</span> <span class="kn">import</span> <span class="n">CatBoostModel</span>
+<span class="kn">from</span> <span class="nn">abby.model.elmo</span> <span class="kn">import</span> <span class="n">ELMOModel</span>
+<span class="kn">from</span> <span class="nn">abby.model.hamming_weight</span> <span class="kn">import</span> <span class="n">HammingWeightModel</span>
+<span class="kn">from</span> <span class="nn">abby.model.mlp</span> <span class="kn">import</span> <span class="n">MlpModel</span>
+<span class="kn">from</span> <span class="nn">abby.model.xgboost</span> <span class="kn">import</span> <span class="n">XgbModel</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;CatBoostModel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ELMOModel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_model&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HammingWeightModel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MlpModel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Model&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XgbModel&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="get_model"><a class="viewcode-back" href="../../modules/model.html#abby.model.get_model">[docs]</a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">create</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Get corresponding model (elmo, xgb or mlp).</span>
+
+<span class="sd">    :param model_cfg: type and path of the model, must be formatted as ``elmo``</span>
+<span class="sd">        for ELMO, ``hd`` for Hamming distance, ``xgb,path`` for boosted tree</span>
+<span class="sd">        using XGBoost or ``mlp,path`` for MLP.</span>
+<span class="sd">    :type model_cfg: str</span>
+<span class="sd">    :param create: create a new model, defaults to False</span>
+<span class="sd">    :type create: bool, optional</span>
+<span class="sd">    :return: model</span>
+<span class="sd">    :rtype: Model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Load corresponding model</span>
+    <span class="k">if</span> <span class="n">model_cfg</span> <span class="o">==</span> <span class="s2">&quot;elmo&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ELMOModel</span><span class="p">(</span><span class="n">create</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">model_cfg</span> <span class="o">==</span> <span class="s2">&quot;hw&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HammingWeightModel</span><span class="p">(</span><span class="n">create</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">model_cfg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;xgb,&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">XgbModel</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span> <span class="n">create</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">model_cfg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;catboost,&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">CatBoostModel</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">[</span><span class="mi">9</span><span class="p">:],</span> <span class="n">create</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">model_cfg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;mlp,&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MlpModel</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">[</span><span class="mi">4</span><span class="p">:],</span> <span class="n">create</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Failed to recognize </span><span class="si">{</span><span class="n">model_cfg</span><span class="si">}</span><span class="s2">, &quot;</span>
+        <span class="s2">&quot;it should be `elmo`, `xgb,path` or `mlp,path`.&quot;</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

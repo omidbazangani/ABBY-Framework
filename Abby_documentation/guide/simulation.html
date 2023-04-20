@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Traces simulation &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model evaluation" href="evaluation.html" />
+    <link rel="prev" title="Models training" href="training.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Models training</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Traces simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sample-simulation-script">Sample simulation script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Traces simulation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/guide/simulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="traces-simulation">
+<h1>Traces simulation<a class="headerlink" href="#traces-simulation" title="Permalink to this headline">¶</a></h1>
+<p>To simulate a side channel trace, we need to emulate the firmware execution
+then predict the trace using it as input data to the inference model.</p>
+<div class="section" id="sample-simulation-script">
+<h2>Sample simulation script<a class="headerlink" href="#sample-simulation-script" title="Permalink to this headline">¶</a></h2>
+<p>The following script simulates traces for each block cipher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/env python3</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  4</span><span class="sd">Emulate target to output features and estimated trace.</span>
+<span class="linenos">  5</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  8</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos">  9</span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="linenos"> 10</span><span class="kn">import</span> <span class="nn">secrets</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 13</span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="kn">import</span> <span class="nn">abby</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">opt</span><span class="p">):</span>
+<span class="linenos"> 19</span>    <span class="c1"># Create destination folder if missing</span>
+<span class="linenos"> 20</span>    <span class="n">dest</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="linenos"> 21</span>    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>    <span class="k">for</span> <span class="n">algo</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">algorithm</span><span class="p">):</span>
+<span class="linenos"> 24</span>        <span class="c1"># Build firmware for simulation</span>
+<span class="linenos"> 25</span>        <span class="c1"># `qemu` parameter remove RCC initialization as emulation does not</span>
+<span class="linenos"> 26</span>        <span class="c1"># implement RCC</span>
+<span class="linenos"> 27</span>        <span class="n">fw_path</span> <span class="o">=</span> <span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">pio_run</span><span class="p">(</span>
+<span class="linenos"> 28</span>            <span class="n">opt</span><span class="o">.</span><span class="n">board</span><span class="p">,</span>
+<span class="linenos"> 29</span>            <span class="n">algo</span><span class="p">,</span>
+<span class="linenos"> 30</span>            <span class="n">qemu</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 31</span>            <span class="n">debug</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span>
+<span class="linenos"> 32</span>        <span class="p">)</span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span>        <span class="c1"># Initiate QEMU</span>
+<span class="linenos"> 35</span>        <span class="n">emulator</span> <span class="o">=</span> <span class="n">abby</span><span class="o">.</span><span class="n">emulator</span><span class="o">.</span><span class="n">QEMUEmulator</span><span class="p">(</span><span class="n">fw_path</span><span class="p">,</span> <span class="n">opt</span><span class="o">.</span><span class="n">board</span><span class="p">)</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>        <span class="c1"># Repeat acquisition with different input texts</span>
+<span class="linenos"> 38</span>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">num</span><span class="p">)):</span>
+<span class="linenos"> 39</span>            <span class="c1"># Input text contains all input data for selected algorithm</span>
+<span class="linenos"> 40</span>            <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">input</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 41</span>                <span class="c1"># Read input text from file</span>
+<span class="linenos"> 42</span>                <span class="n">input_text</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+<span class="linenos"> 43</span>                <span class="n">input_size</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">get_input_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos"> 44</span>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_text</span><span class="p">)</span> <span class="o">!=</span> <span class="n">input_size</span><span class="p">:</span>
+<span class="linenos"> 45</span>                    <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span>
+<span class="linenos"> 46</span>                        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Input text </span><span class="si">{</span><span class="n">input_text</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2"> does not &quot;</span>
+<span class="linenos"> 47</span>                        <span class="sa">f</span><span class="s2">&quot;match size </span><span class="si">{</span><span class="n">input_size</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos"> 48</span>                    <span class="p">)</span>
+<span class="linenos"> 49</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 50</span>                <span class="c1"># Random input text</span>
+<span class="linenos"> 51</span>                <span class="n">input_text</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xAE</span><span class="s2">&quot;</span>  <span class="c1"># start byte</span>
+<span class="linenos"> 52</span>                <span class="n">input_text</span> <span class="o">+=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_bytes</span><span class="p">(</span><span class="n">algo</span><span class="o">.</span><span class="n">get_input_length</span><span class="p">())</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>            <span class="c1"># If file already exist, skip</span>
+<span class="linenos"> 55</span>            <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">only_power</span><span class="p">:</span>
+<span class="linenos"> 56</span>                <span class="n">output</span> <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">opt</span><span class="o">.</span><span class="n">board</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">algo</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">input_text</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2">.npy&quot;</span>
+<span class="linenos"> 57</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 58</span>                <span class="n">output</span> <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">opt</span><span class="o">.</span><span class="n">board</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">algo</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">input_text</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+<span class="linenos"> 59</span>            <span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<span class="linenos"> 60</span>                <span class="k">continue</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>            <span class="c1"># Regenerate random code if necessary</span>
+<span class="linenos"> 63</span>            <span class="k">if</span> <span class="n">algo</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;generated-code&quot;</span><span class="p">:</span>
+<span class="linenos"> 64</span>                <span class="n">algo</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">input_text</span>
+<span class="linenos"> 65</span>                <span class="n">fw_path</span> <span class="o">=</span> <span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">pio_run</span><span class="p">(</span>
+<span class="linenos"> 66</span>                    <span class="n">opt</span><span class="o">.</span><span class="n">board</span><span class="p">,</span>
+<span class="linenos"> 67</span>                    <span class="n">algo</span><span class="p">,</span>
+<span class="linenos"> 68</span>                    <span class="n">elmo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 69</span>                    <span class="n">debug</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span>
+<span class="linenos"> 70</span>                <span class="p">)</span>
+<span class="linenos"> 71</span>                <span class="n">emulator</span> <span class="o">=</span> <span class="n">abby</span><span class="o">.</span><span class="n">emulator</span><span class="o">.</span><span class="n">QEMUEmulator</span><span class="p">(</span><span class="n">fw_path</span><span class="p">)</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>            <span class="c1"># Emulate target</span>
+<span class="linenos"> 74</span>            <span class="n">output_len</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">algo</span><span class="o">.</span><span class="n">msg_length</span>  <span class="c1"># +1 for header</span>
+<span class="linenos"> 75</span>            <span class="n">_</span><span class="p">,</span> <span class="n">execution_trace</span> <span class="o">=</span> <span class="n">emulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">input_text</span><span class="p">,</span> <span class="n">output_len</span><span class="p">)</span>
+<span class="linenos"> 76</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">opt</span><span class="o">.</span><span class="n">no_crop</span><span class="p">:</span>
+<span class="linenos"> 77</span>                <span class="n">execution_trace</span> <span class="o">=</span> <span class="n">emulator</span><span class="o">.</span><span class="n">crop_nop</span><span class="p">(</span><span class="n">execution_trace</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+<span class="linenos"> 78</span>                    <span class="s2">&quot;opcode&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="linenos"> 79</span>                <span class="p">)</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>            <span class="c1"># Predict using model and save</span>
+<span class="linenos"> 82</span>            <span class="n">execution_trace</span><span class="p">[</span><span class="s2">&quot;power&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">execution_trace</span><span class="p">)</span>
+<span class="linenos"> 83</span>            <span class="k">if</span> <span class="n">opt</span><span class="o">.</span><span class="n">only_power</span><span class="p">:</span>
+<span class="linenos"> 84</span>                <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">execution_trace</span><span class="p">[</span><span class="s2">&quot;power&quot;</span><span class="p">])</span>
+<span class="linenos"> 85</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 86</span>                <span class="n">execution_trace</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos"> 90</span>    <span class="c1"># Arguments parser</span>
+<span class="linenos"> 91</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="linenos"> 92</span>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Emulate target to output features and estimated trace.&quot;</span><span class="p">,</span>
+<span class="linenos"> 93</span>    <span class="p">)</span>
+<span class="linenos"> 94</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos"> 95</span>        <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
+<span class="linenos"> 96</span>        <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
+<span class="linenos"> 97</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos"> 98</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 99</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;silent mode: hide info and warnings, overrides debug&quot;</span><span class="p">,</span>
+<span class="linenos">100</span>    <span class="p">)</span>
+<span class="linenos">101</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">102</span>        <span class="s2">&quot;--debug&quot;</span><span class="p">,</span>
+<span class="linenos">103</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos">104</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">105</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;debug mode: show debug messages&quot;</span><span class="p">,</span>
+<span class="linenos">106</span>    <span class="p">)</span>
+<span class="linenos">107</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">108</span>        <span class="s2">&quot;-n&quot;</span><span class="p">,</span>
+<span class="linenos">109</span>        <span class="s2">&quot;--num&quot;</span><span class="p">,</span>
+<span class="linenos">110</span>        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+<span class="linenos">111</span>        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">112</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;amount of traces for each algorithm, default to 1&quot;</span><span class="p">,</span>
+<span class="linenos">113</span>    <span class="p">)</span>
+<span class="linenos">114</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">115</span>        <span class="s2">&quot;-b&quot;</span><span class="p">,</span>
+<span class="linenos">116</span>        <span class="s2">&quot;--board&quot;</span><span class="p">,</span>
+<span class="linenos">117</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">118</span>        <span class="n">choices</span><span class="o">=</span><span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">environments</span><span class="p">,</span>
+<span class="linenos">119</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;target device to simulate&quot;</span><span class="p">,</span>
+<span class="linenos">120</span>    <span class="p">)</span>
+<span class="linenos">121</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">122</span>        <span class="s2">&quot;-a&quot;</span><span class="p">,</span>
+<span class="linenos">123</span>        <span class="s2">&quot;--algorithm&quot;</span><span class="p">,</span>
+<span class="linenos">124</span>        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span>
+<span class="linenos">125</span>        <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">blockcipher</span><span class="o">.</span><span class="n">GeneratedCode</span><span class="p">()],</span>
+<span class="linenos">126</span>        <span class="n">choices</span><span class="o">=</span><span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">blockcipher</span><span class="o">.</span><span class="n">blockciphers</span><span class="p">,</span>
+<span class="linenos">127</span>        <span class="nb">type</span><span class="o">=</span><span class="n">abby</span><span class="o">.</span><span class="n">firmware</span><span class="o">.</span><span class="n">get_blockcipher</span><span class="p">,</span>
+<span class="linenos">128</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;algorithm to simulate, default to generated code&quot;</span><span class="p">,</span>
+<span class="linenos">129</span>    <span class="p">)</span>
+<span class="linenos">130</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">131</span>        <span class="s2">&quot;-m&quot;</span><span class="p">,</span>
+<span class="linenos">132</span>        <span class="s2">&quot;--model&quot;</span><span class="p">,</span>
+<span class="linenos">133</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">134</span>        <span class="nb">type</span><span class="o">=</span><span class="n">abby</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_model</span><span class="p">,</span>
+<span class="linenos">135</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;model to use to estimate trace, format `type,path`&quot;</span><span class="p">,</span>
+<span class="linenos">136</span>    <span class="p">)</span>
+<span class="linenos">137</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">138</span>        <span class="s2">&quot;--no_crop&quot;</span><span class="p">,</span>
+<span class="linenos">139</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos">140</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">141</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;disable cropping of NOP instructions&quot;</span><span class="p">,</span>
+<span class="linenos">142</span>    <span class="p">)</span>
+<span class="linenos">143</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">144</span>        <span class="s2">&quot;--only_power&quot;</span><span class="p">,</span>
+<span class="linenos">145</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos">146</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">147</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;save only power in Numpy array&quot;</span><span class="p">,</span>
+<span class="linenos">148</span>    <span class="p">)</span>
+<span class="linenos">149</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">150</span>        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+<span class="linenos">151</span>        <span class="s2">&quot;--input&quot;</span><span class="p">,</span>
+<span class="linenos">152</span>        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
+<span class="linenos">153</span>        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">),</span>
+<span class="linenos">154</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;text file containing input to send, default to random&quot;</span><span class="p">,</span>
+<span class="linenos">155</span>    <span class="p">)</span>
+<span class="linenos">156</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">157</span>        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+<span class="linenos">158</span>        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+<span class="linenos">159</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">160</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;destination folder for saved traces&quot;</span><span class="p">,</span>
+<span class="linenos">161</span>    <span class="p">)</span>
+<span class="linenos">162</span>    <span class="n">options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">163</span>    <span class="n">abby</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setup_logger</span><span class="p">(</span><span class="s2">&quot;abby&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">.</span><span class="n">quiet</span><span class="p">,</span> <span class="n">options</span><span class="o">.</span><span class="n">debug</span><span class="p">)</span>
+<span class="linenos">164</span>    <span class="n">main</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="Model evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="training.html" class="btn btn-neutral float-left" title="Models training" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

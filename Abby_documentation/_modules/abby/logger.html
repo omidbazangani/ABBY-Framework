@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.logger &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.logger</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.logger</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">*Pretty logging for nice command line programs.*</span>
+
+<span class="sd">When using tqdm (progress bars) with Python logging, text output is broken.</span>
+<span class="sd">This module implements a custom logger that solves this issue.</span>
+
+<span class="sd">This logger also colors output and set the right verbosity level.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<div class="viewcode-block" id="TqdmLoggingHandler"><a class="viewcode-back" href="../../modules/extra/logger.html#abby.logger.TqdmLoggingHandler">[docs]</a><span class="k">class</span> <span class="nc">TqdmLoggingHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Define custom logging handler that does not break tqdm output&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TqdmLoggingHandler.emit"><a class="viewcode-back" href="../../modules/extra/logger.html#abby.logger.TqdmLoggingHandler.emit">[docs]</a>    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log the record with tqdm print&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+            <span class="n">tqdm</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">SystemExit</span><span class="p">):</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handleError</span><span class="p">(</span><span class="n">record</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="setup_logger"><a class="viewcode-back" href="../../modules/extra/logger.html#abby.logger.setup_logger">[docs]</a><span class="k">def</span> <span class="nf">setup_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;abby&quot;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Create Python logging.Logger with colors and tqdm support.</span>
+
+<span class="sd">    If you want to apply this logger configuration to abby submodules, you</span>
+<span class="sd">    should name it ``abby`` as ``abby.something`` will inherit configuration.</span>
+
+<span class="sd">    Default verbosity is INFO, WARNING, ERRORS and CRITICAL. If quiet, show</span>
+<span class="sd">    only ERRORS and CRITICAL. If debug, show everything.</span>
+
+<span class="sd">    :param name: name of the logger, should be the root of all other logger</span>
+<span class="sd">    :type name: str, optional</span>
+<span class="sd">    :param quiet: only print warning and errors, defaults to False</span>
+<span class="sd">    :type quiet: bool, optional</span>
+<span class="sd">    :param debug: print debugging information, defaults to False</span>
+<span class="sd">    :type debug: bool, optional</span>
+<span class="sd">    :return: custom logger</span>
+<span class="sd">    :rtype: logging.Logger</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span><span class="p">:</span>
+        <span class="n">verbosity</span> <span class="o">=</span> <span class="mi">20</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">debug</span> <span class="k">else</span> <span class="mi">10</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">verbosity</span> <span class="o">=</span> <span class="mi">40</span>
+
+    <span class="c1"># Change log format</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+        <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[90m</span><span class="si">%(asctime)s</span><span class="se">\033</span><span class="s2">[1;0m </span><span class="si">%(levelname)s</span><span class="s2"> [</span><span class="si">%(name)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c1"># Change level names and set level</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;36mINFO</span><span class="se">\033</span><span class="s2">[1;0m&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;33mWARNING</span><span class="se">\033</span><span class="s2">[1;0m&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;91mERROR</span><span class="se">\033</span><span class="s2">[1;0m&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1;37mDEBUG</span><span class="se">\033</span><span class="s2">[1;0m&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">verbosity</span><span class="p">)</span>
+
+    <span class="c1"># Custom handler</span>
+    <span class="n">handler</span> <span class="o">=</span> <span class="n">TqdmLoggingHandler</span><span class="p">()</span>
+    <span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">logger</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

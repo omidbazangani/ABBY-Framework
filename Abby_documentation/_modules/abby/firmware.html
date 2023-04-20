@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.firmware &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.firmware</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.firmware</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Abby comes with a device-agnostic firmware that can run multiple block ciphers</span>
+<span class="sd">and can be flashed on a large variety of boards.</span>
+<span class="sd">This firmware is meant to be used to generate training or evaluation data for</span>
+<span class="sd">side-channel models.</span>
+
+<span class="sd">Building and flashing process</span>
+<span class="sd">-----------------------------</span>
+
+<span class="sd">To simplify build and flashing process, Abby uses</span>
+<span class="sd">`PlatformIO &lt;https://platformio.org/&gt;`_.</span>
+<span class="sd">This tool provides a common abstraction over multiples boards.</span>
+<span class="sd">Depending on targeted board, it will automatically download matching</span>
+<span class="sd">cross-compilation toolchain and flashing utilities.</span>
+
+<span class="sd">Each board is in a separate PlatformIO environment such as ``disco_f051r8``.</span>
+<span class="sd">The algorithm is given to PlatformIO via ``PLATFORMIO_ALGORITHM`` environment</span>
+<span class="sd">variable.</span>
+
+<span class="sd">To manually use PlatformIO without Abby scripts, you can go to ``abby/firmware``</span>
+<span class="sd">then launch ``PLATFORMIO_ALGORITHM=tinyaes pio run -t upload -e disco_f051r8``</span>
+<span class="sd">to flash TinyAES on a ST STM32F051 Discovery.</span>
+
+<span class="sd">Target support</span>
+<span class="sd">--------------</span>
+
+<span class="sd">For now this firmware supports only Arduino and LibOpenCM3 frameworks to target</span>
+<span class="sd">a large variety of boards.</span>
+
+<span class="sd">These boards are supported and tested:</span>
+
+<span class="sd">* ST Discovery STM32F051 and STM32F030 (``disco_f051r8``)</span>
+
+<span class="sd">These boards are implemented but not tested yet:</span>
+
+<span class="sd">* Waveshare Core407I or Riscure Piñata, STM32F407IGT6 (``genericSTM32F407IGT6``)</span>
+<span class="sd">* BBC Micro:bit v1, Nordic nRF51822 (``bbcmicrobit``)</span>
+
+<span class="sd">Code padding</span>
+<span class="sd">------------</span>
+
+<span class="sd">After sending some input data, the firmware runs :</span>
+
+<span class="sd">* 500 ``NOP`` instructions,</span>
+<span class="sd">* the selected algorithm,</span>
+<span class="sd">* 500 ``NOP`` instructions again.</span>
+
+<span class="sd">On ARM Cortex-M0, ``NOP`` is equivalent to ``MOV r8, r8``.</span>
+<span class="sd">Using ``NOP``, we are adding a reference to ease debugging and alignment.</span>
+<span class="sd">We also make sure that the instructions triggering acquisitions do not effect</span>
+<span class="sd">acquired data as activating a GPIO may have an effect on the beginning of the</span>
+<span class="sd">trace.</span>
+
+<span class="sd">Flashing and execution</span>
+<span class="sd">----------------------</span>
+
+<span class="sd">These functions enables you to choose a block cipher and build and flash it.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="kn">import</span> <span class="nn">abby.firmware.blockcipher</span> <span class="k">as</span> <span class="nn">blockcipher</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blockcipher&quot;</span><span class="p">,</span> <span class="s2">&quot;pio_run&quot;</span><span class="p">,</span> <span class="s2">&quot;get_blockcipher&quot;</span><span class="p">,</span> <span class="s2">&quot;environments&quot;</span><span class="p">]</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Supported environments, matching platformio.ini</span>
+<span class="n">environments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;bbcmicrobit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;disco_f051r8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;native&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;disco_f100rb&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="pio_run"><a class="viewcode-back" href="../../modules/firmware.html#abby.firmware.pio_run">[docs]</a><span class="k">def</span> <span class="nf">pio_run</span><span class="p">(</span>
+    <span class="n">env</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">algorithm</span><span class="p">:</span> <span class="n">blockcipher</span><span class="o">.</span><span class="n">BlockCipher</span><span class="p">,</span>
+    <span class="n">upload</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">elmo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">qemu</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Run one PlatformIO environment and return path to built firmware.</span>
+
+<span class="sd">    PlatformIO is written in Python, but lacks an API. A workaround is to</span>
+<span class="sd">    manually call run Click command with arguments. By doing this we will</span>
+<span class="sd">    still compatible with different versions.</span>
+
+<span class="sd">    Using ``elmo=True`` you can compile a firmware calling ELMO specific code</span>
+<span class="sd">    and disable some board specific code that interfere with ELMO such as</span>
+<span class="sd">    ``gpio_set``.</span>
+
+<span class="sd">    :param env: name of the PlatformIO environment to run</span>
+<span class="sd">    :type env: str</span>
+<span class="sd">    :param algorithm: algorithm to use</span>
+<span class="sd">    :type algorithm: blockcipher.BlockCipher</span>
+<span class="sd">    :param upload: uploads firmware to the first board found by PlatformIO,</span>
+<span class="sd">        defaults to False</span>
+<span class="sd">    :type upload: bool, optional</span>
+<span class="sd">    :param elmo: compiles firmware with ``-DELMO`` option, defaults to False</span>
+<span class="sd">    :type elmo: bool, optional</span>
+<span class="sd">    :param qemu: compiles firmware with ``-DQEMU`` option, defaults to False</span>
+<span class="sd">    :type qemu: bool, optional</span>
+<span class="sd">    :param debug: outputs compilation logs, defaults to False</span>
+<span class="sd">    :type debug: bool, optional</span>
+<span class="sd">    :raises ImportError: when PlatformIO is missing</span>
+<span class="sd">    :return: path to built firmware</span>
+<span class="sd">    :rtype: pathlib.Path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Locate firmware</span>
+    <span class="n">project_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+    <span class="n">workspace_dir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;pio&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Generate random code if we are building it</span>
+    <span class="n">build_flags</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">algorithm</span><span class="p">,</span> <span class="n">blockcipher</span><span class="o">.</span><span class="n">GeneratedCode</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">abby.firmware.generate</span> <span class="kn">import</span> <span class="n">generate</span>
+
+        <span class="n">src_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;generated&quot;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.S&quot;</span>
+        <span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generating assembly code to </span><span class="si">{</span><span class="n">src_file</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">generate</span><span class="p">(</span><span class="n">src_file</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">algorithm</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">algorithm</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+        <span class="n">build_flags</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;&#39;-DGENERATED_PATH=</span><span class="se">\&quot;</span><span class="si">{</span><span class="n">src_file</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&#39; &quot;</span>
+
+    <span class="c1"># Disable some code that breaks the emulator</span>
+    <span class="k">if</span> <span class="n">elmo</span><span class="p">:</span>
+        <span class="n">build_flags</span> <span class="o">+=</span> <span class="s2">&quot;-DELMO&quot;</span>
+    <span class="k">if</span> <span class="n">qemu</span><span class="p">:</span>
+        <span class="n">build_flags</span> <span class="o">+=</span> <span class="s2">&quot;-DQEMU&quot;</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Building </span><span class="si">{</span><span class="n">env</span><span class="si">}</span><span class="s2"> with algorithm </span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2">, elmo version: </span><span class="si">{</span><span class="n">elmo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PLATFORMIO_BUILD_FLAGS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">build_flags</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PLATFORMIO_ALGORITHM&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">algorithm</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PLATFORMIO_WORKSPACE_DIR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">workspace_dir</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">project_dir</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">debug</span><span class="p">:</span>
+        <span class="c1"># Make silent unless debug</span>
+        <span class="n">args</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;-s&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">upload</span><span class="p">:</span>
+        <span class="n">args</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;upload&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Import PlatformIO</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">platformio.commands.run.command</span> <span class="kn">import</span> <span class="n">cli</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;You need to install platformio module.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="c1"># Run PlatformIO</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stderr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+            <span class="n">cli</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># pylint: disable=no-value-for-parameter</span>
+    <span class="k">except</span> <span class="ne">SystemExit</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1"># Do not let platformio exit script</span>
+
+    <span class="k">if</span> <span class="n">env</span> <span class="o">==</span> <span class="s2">&quot;native&quot;</span><span class="p">:</span>
+        <span class="n">output_name</span> <span class="o">=</span> <span class="s2">&quot;program&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_name</span> <span class="o">=</span> <span class="s2">&quot;firmware.bin&quot;</span>
+
+    <span class="k">return</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">workspace_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;build&quot;</span> <span class="o">/</span> <span class="n">env</span> <span class="o">/</span> <span class="n">output_name</span></div>
+
+
+<div class="viewcode-block" id="get_blockcipher"><a class="viewcode-back" href="../../modules/firmware.html#abby.firmware.get_blockcipher">[docs]</a><span class="k">def</span> <span class="nf">get_blockcipher</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">blockcipher</span><span class="o">.</span><span class="n">BlockCipher</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Get a block cipher by name</span>
+
+<span class="sd">    :param name: name of the block cipher to get</span>
+<span class="sd">    :type name: str</span>
+<span class="sd">    :raises ValueError: cipher not found</span>
+<span class="sd">    :return: block cipher object</span>
+<span class="sd">    :rtype: blockcipher.BlockCipher</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">cipher</span> <span class="ow">in</span> <span class="n">blockcipher</span><span class="o">.</span><span class="n">blockciphers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cipher</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cipher</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not implemented&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

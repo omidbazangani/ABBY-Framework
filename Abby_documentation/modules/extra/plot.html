@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Plotting &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Logger" href="logger.html" />
+    <link rel="prev" title="Oscilloscope" href="oscilloscope.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluation.html">Evaluation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Extra modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oscilloscope.html">Oscilloscope</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">Logger</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Extra modules</a> &raquo;</li>
+        
+      <li>Plotting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/modules/extra/plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-abby.plot">
+<span id="plotting"></span><h1>Plotting<a class="headerlink" href="#module-abby.plot" title="Permalink to this headline">¶</a></h1>
+<p>Plotting helpers.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.plot.instruction_frequency_table">
+<span class="sig-prename descclassname"><span class="pre">abby.plot.</span></span><span class="sig-name descname"><span class="pre">instruction_frequency_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'instr_stage3'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'instr_stage2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="../../_modules/abby/plot.html#instruction_frequency_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.plot.instruction_frequency_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate HTML table with each couple of instructions frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>execution_trace</strong> (<em>pandas.DataFrame</em>) – execution trace to analyse</p></li>
+<li><p><strong>x</strong> (<em>str</em><em>, </em><em>optional</em>) – vertical axis of table, defaults to “instr_stage3”</p></li>
+<li><p><strong>y</strong> (<em>str</em><em>, </em><em>optional</em>) – horizontal axis of table, defaults to “instr_stage2”</p></li>
+<li><p><strong>instructions</strong> (<em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of instruction to show, defaults to automatic</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTML code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.plot.plot_fourier">
+<span class="sig-prename descclassname"><span class="pre">abby.plot.</span></span><span class="sig-name descname"><span class="pre">plot_fourier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_estimated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500000000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/abby/plot.html#plot_fourier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.plot.plot_fourier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot trace and Fourier transform on current Matplotlib figure.</p>
+<p>The Fourier transform of trace should contain a spike at target clock
+frequency. You can use this function to inspect your target clock
+frequency.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abby</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_fourier</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<em>[</em><em>float</em><em>] or </em><em>np.ndarray</em>) – side-channel trace to inspect</p></li>
+<li><p><strong>freq_estimated</strong> (<em>float</em><em>, </em><em>optional</em>) – estimated clock frequency in Hz, defaults to 8 MHz</p></li>
+<li><p><strong>freq_precision</strong> (<em>float</em><em>, </em><em>optional</em>) – clock frequency precision in Hz, defaults to 1 kHz</p></li>
+<li><p><strong>threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – threshold line for spikes detection, defaults to 0.0002</p></li>
+<li><p><strong>sample_rate</strong> (<em>float</em><em>, </em><em>optional</em>) – trace sampling rate in Hz, defaults to 500 MHz</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.plot.plot_ttest">
+<span class="sig-prename descclassname"><span class="pre">abby.plot.</span></span><span class="sig-name descname"><span class="pre">plot_ttest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ttest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/abby/plot.html#plot_ttest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.plot.plot_ttest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot t-test result on current Matplotlib figure.</p>
+<p>This helper function adds the 4.5 threshold line (99.999% confidence) and
+do some common formatting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ttest</strong> (<em>[</em><em>float</em><em>] or </em><em>np.ndarray</em>) – t-test result</p></li>
+<li><p><strong>x_axis</strong> (<em>[</em><em>float</em><em>] or </em><em>np.ndarray</em><em>, </em><em>optional</em>) – X-axis used for plotting, defaults to simple range</p></li>
+<li><p><strong>xlim</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em><em>, </em><em>optional</em>) – X-axis range to plot, defaults to full range</p></li>
+<li><p><strong>absolute</strong> (<em>bool</em><em>, </em><em>optional</em>) – plot absolute value of t-test, defaults to False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="logger.html" class="btn btn-neutral float-right" title="Logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="oscilloscope.html" class="btn btn-neutral float-left" title="Oscilloscope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

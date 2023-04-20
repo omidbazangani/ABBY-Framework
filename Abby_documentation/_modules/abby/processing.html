@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.processing &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.processing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.processing</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Trace processing tools.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="crop_cycles"><a class="viewcode-back" href="../../modules/processing.html#abby.processing.crop_cycles">[docs]</a><span class="k">def</span> <span class="nf">crop_cycles</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">samples_per_cycle</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Crop cycles at beginning and end of trace.</span>
+
+<span class="sd">    Abby firmware injects 500 ``NOP`` instructions before and after cipher</span>
+<span class="sd">    execution for alignment and debug purposes. We search for a group of</span>
+<span class="sd">    ``500*samples_per_cycle`` samples under the threshold.</span>
+
+<span class="sd">    :param trace: trace to process</span>
+<span class="sd">    :type trace: [float] or np.ndarray</span>
+<span class="sd">    :param threshold: threshold for cropping</span>
+<span class="sd">    :type threshold: float</span>
+<span class="sd">    :param samples_per_cycle: number of samples for each cycle,</span>
+<span class="sd">        default to 1</span>
+<span class="sd">    :type samples_per_cycle: int, optional</span>
+<span class="sd">    :return: cropped trace</span>
+<span class="sd">    :rtype: np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO: implement samples_per_cycle usage</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+
+    <span class="c1"># Search groups of 500 NOP instructions</span>
+    <span class="n">above_ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+    <span class="n">index_ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">above_ts</span><span class="p">))</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">above_ts</span><span class="p">[</span><span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">450</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Split into two groups</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">index_ts</span><span class="p">)</span>
+    <span class="n">index_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">index_ts</span><span class="p">[</span><span class="n">index_ts</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">])</span> <span class="o">+</span> <span class="mi">450</span>
+    <span class="n">index_end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">index_ts</span><span class="p">[</span><span class="n">index_ts</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">trace</span><span class="p">[</span><span class="n">index_start</span><span class="p">:</span><span class="n">index_end</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="find_clock_freq_phase"><a class="viewcode-back" href="../../modules/processing.html#abby.processing.find_clock_freq_phase">[docs]</a><span class="k">def</span> <span class="nf">find_clock_freq_phase</span><span class="p">(</span>
+    <span class="n">trace</span><span class="p">,</span>
+    <span class="n">freq_estimated</span><span class="o">=</span><span class="mf">8e6</span><span class="p">,</span>
+    <span class="n">freq_precision</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="o">=</span><span class="mf">250e6</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find the CPU clock frequency and phase from the trace.</span>
+
+<span class="sd">    Compute the fast Fourier transform of the trace then search for the spike</span>
+<span class="sd">    corresponding to clock frequency. Using the frequency and phase from</span>
+<span class="sd">    this spike, you can align trace with clock cycles.</span>
+
+<span class="sd">    Using this function to cut clock cycles is rather imprecise when clock</span>
+<span class="sd">    jitter occurs. Using the crystal oscillator on a STM32F0 Discovery board, we</span>
+<span class="sd">    observed different clock frequency between executing ``NOP`` instructions</span>
+<span class="sd">    and ``STR`` instructions. If you are profiling a small amount of</span>
+<span class="sd">    instructions surrounded by ``NOP`` instructions, you might want to use</span>
+<span class="sd">    :func:`abby.processing.crop_cycles` with</span>
+<span class="sd">    ``samples_per_cycle = sample_rate / freq_estimated``.</span>
+
+<span class="sd">    You can visualize what this function does using</span>
+<span class="sd">    :func:`abby.plot.plot_fourier`.</span>
+
+<span class="sd">    :param trace: side-channel trace to process</span>
+<span class="sd">    :type trace: [float] or np.ndarray</span>
+<span class="sd">    :param freq_estimated: estimated clock frequency in Hz, defaults to 8 MHz</span>
+<span class="sd">    :type freq_estimated: float, optional</span>
+<span class="sd">    :param freq_precision: clock frequency precision in Hz, defaults to 1 kHz</span>
+<span class="sd">    :type freq_precision: float, optional</span>
+<span class="sd">    :param threshold: threshold line for spikes detection, defaults to 0.0002</span>
+<span class="sd">    :type threshold: float, optional</span>
+<span class="sd">    :param sample_rate: trace sampling rate in Hz, defaults to 250 MHz</span>
+<span class="sd">    :type sample_rate: float, optional</span>
+<span class="sd">    :return: found frequency and phase</span>
+<span class="sd">    :rtype: (float, float)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># FFT normalized by dividing by trace length</span>
+    <span class="n">fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">sample_rate</span><span class="p">)</span>
+
+    <span class="c1"># Find all spikes that are higher than threshold</span>
+    <span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span>
+    <span class="n">spikes_freqs</span> <span class="o">=</span> <span class="n">freqs</span><span class="p">[</span><span class="n">spikes</span><span class="p">]</span>
+    <span class="n">spikes_values</span> <span class="o">=</span> <span class="n">fft</span><span class="p">[</span><span class="n">spikes</span><span class="p">]</span>
+
+    <span class="c1"># Search frequencies in range estimated +/- precision</span>
+    <span class="n">near_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spikes_freqs</span> <span class="o">-</span> <span class="n">freq_estimated</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">freq_precision</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">spikes_freqs</span><span class="p">[</span><span class="n">near_index</span><span class="p">]</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">spikes_values</span><span class="p">[</span><span class="n">near_index</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">180</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Did not find CPU frequency&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Found multiple CPU frequency&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">freqs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="find_cycles"><a class="viewcode-back" href="../../modules/processing.html#abby.processing.find_cycles">[docs]</a><span class="k">def</span> <span class="nf">find_cycles</span><span class="p">(</span><span class="n">clock</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">freq_estimated</span><span class="o">=</span><span class="mf">8e6</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mf">250e6</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find CPU cycles from clock signal.</span>
+
+<span class="sd">    :param clock: acquired clock signal</span>
+<span class="sd">    :type clock: np.ndarray</span>
+<span class="sd">    :param freq_estimated: estimation of the clock frequency in Hz, used for</span>
+<span class="sd">        high pass filtering, defaults to 8 MHz</span>
+<span class="sd">    :type freq_estimated: float, optional</span>
+<span class="sd">    :param sample_rate: trace sampling rate in Hz, defaults to 250 MHz</span>
+<span class="sd">    :type sample_rate: float, optional</span>
+<span class="sd">    :return: indexes of cycles beginning</span>
+<span class="sd">    :rtype: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Filter clock signal with second order high pass filter</span>
+    <span class="n">sos</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">freq_estimated</span><span class="p">,</span> <span class="s2">&quot;hp&quot;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">)</span>
+    <span class="n">clock</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">clock</span><span class="p">)</span>
+
+    <span class="c1"># Get falling edges of clock signal</span>
+    <span class="n">cycles_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">clock</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">clock</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">cycles_indexes</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installation &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traces acquisition" href="acquisition.html" />
+    <link rel="prev" title="Quick start" href="../quick-start.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites-for-acquisitions">Prerequisites for acquisitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#oscilloscope">Oscilloscope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stlink-v2-permissions">STLink v2 permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-from-sources">Build from sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/guide/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Abby is packaged as a Python module.
+You need to have a working Python 3 installation with pip module.</p>
+<div class="section" id="prerequisites-for-acquisitions">
+<h2>Prerequisites for acquisitions<a class="headerlink" href="#prerequisites-for-acquisitions" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use Abby to acquire some traces from a real target, you will
+need to set up an acquisition setup and install the library associated with
+your oscilloscope.</p>
+<div class="section" id="oscilloscope">
+<h3>Oscilloscope<a class="headerlink" href="#oscilloscope" title="Permalink to this headline">¶</a></h3>
+<p>For a PicoScope 3000a serie, you may install the official driver on Debian/Ubuntu with the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -O - https://labs.picotech.com/debian/dists/picoscope/Release.gpg.key <span class="p">|</span> sudo apt-key add -
+sudo apt-add-repository <span class="s2">&quot;deb https://labs.picotech.com/debian/ picoscope main&quot;</span>
+sudo apt install libps3000a
+</pre></div>
+</div>
+</div>
+<div class="section" id="stlink-v2-permissions">
+<h3>STLink v2 permissions<a class="headerlink" href="#stlink-v2-permissions" title="Permalink to this headline">¶</a></h3>
+<p>By default, your user might not be allowed to access the STLink device.
+To enable any user from <code class="docutils literal notranslate"><span class="pre">plugdev</span></code> group to communicate with STLink v2,
+you may add the following udev rule to <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/stlinkv2.rules</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ATTRS{idVendor}==&quot;0483&quot;, ATTRS{idProduct}==&quot;3748&quot;, MODE=&quot;664&quot;, GROUP=&quot;plugdev&quot;
+</pre></div>
+</div>
+<p>Then you can reboot, or try to hot-reload udev rules:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>udevadm control --reload-rules <span class="o">&amp;&amp;</span> udevadm trigger
+</pre></div>
+</div>
+<p>If you have installed STM32Cube in the past, you might already have an udev rule
+that enables every user to access the device. You can keep it like this, or use
+the rule above for more security.</p>
+</div>
+</div>
+<div class="section" id="build-from-sources">
+<h2>Build from sources<a class="headerlink" href="#build-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>Clone the Git repository and then install the Python module:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive https://gitlab.science.ru.nl/abby/python-abby <span class="o">&amp;&amp;</span> <span class="nb">cd</span> python-abby
+pip install --user -e .
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-e</span></code> option symlinks the module files to allow editing source files during
+development process.
+<code class="docutils literal notranslate"><span class="pre">--user</span></code> installs the Python module in you user <code class="docutils literal notranslate"><span class="pre">~/.local/</span></code> folder.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="acquisition.html" class="btn btn-neutral float-right" title="Traces acquisition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../quick-start.html" class="btn btn-neutral float-left" title="Quick start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

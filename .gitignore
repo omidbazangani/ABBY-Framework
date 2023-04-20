@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+dist
+build
+__pycache__
+*.py[cod]
+*$py.class
+*.swp
+*.egg-info
+_build
+.tox
+.coverage
+coverage
+docs/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# PyCharm project settings
+.idea
+
+# VSCode project settings
+.vscode
+
+# Coverage
+coverage.xml
+htmlcov/
+
+# Virtualenv
+venv/
+
+# Automatic versioning
+abby/version.py

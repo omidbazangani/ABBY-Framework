@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "abby/version.py"
+
+[tool.interrogate]
+ignore-private = true
+fail-under = 90
+exclude = ["setup.py", "docs", "build", "abby/version.py", ".vscode"]
+verbose = 2
+
+[tool.check-manifest]
+ignore = ["abby/version.py"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    linters
+    tests
+    docs
+[gh-actions]
+python =
+    3.9: linters, docs
+[testenv]
+setenv =
+    PYTHONWARNINGS = all
+[testenv:tests]
+deps =
+    pytest
+    pytest-cov
+    catboost
+commands =
+    pytest --cov=abby --basetemp="{envtmpdir}" {posargs} tests
+    coverage xml
+    coverage html
+[testenv:linters]
+skip_install = true
+deps =
+    black
+    isort
+    interrogate
+    check-manifest
+commands =
+    black --check --diff abby docs/scripts tests setup.py
+    isort --profile black abby docs/scripts tests
+    interrogate
+    check-manifest
+[testenv:docs]
+deps =
+    sphinx
+    sphinx-rtd-theme
+    readthedocs-sphinx-ext
+commands =
+    sphinx-build -W -b html -d {envtmpdir}/doctrees docs docs/_build/html
+    sphinx-build -W -b latex -d {envtmpdir}/doctrees docs docs/_build/latex
+"""

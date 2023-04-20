@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Training data creation &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Models training" href="training.html" />
+    <link rel="prev" title="Traces acquisition" href="acquisition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Training data creation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aligning-with-an-existing-model">Aligning with an existing model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aligning-with-a-tracing-probe">Aligning with a tracing probe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tracing-setup">Tracing setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Training data creation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/guide/dataset-building.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="training-data-creation">
+<h1>Training data creation<a class="headerlink" href="#training-data-creation" title="Permalink to this headline">¶</a></h1>
+<p>To create training data, it is required to align execution traces to the
+acquired side channel traces. Without alignment, it is impossible to know
+which instruction is running and affecting the side channel.</p>
+<div class="section" id="aligning-with-an-existing-model">
+<h2>Aligning with an existing model<a class="headerlink" href="#aligning-with-an-existing-model" title="Permalink to this headline">¶</a></h2>
+<p>Using an existing model, it is possible to use algorithms such as Dynamic Time
+Wrapping to align instructions with side channel trace.</p>
+<div class="graphviz"><img src="../_images/graphviz-96136320a65ece384f20839078d953cf48cd7f4f.png" alt="digraph dataset_pipeline {
+    Emulator [color=&quot;blue&quot;];
+    Model [color=&quot;blue&quot;];
+    &quot;Firmware builder&quot; -&gt; Emulator [label=&quot;machine code&quot;, color=&quot;blue&quot;];
+    Emulator -&gt; Model [label=&quot;execution trace&quot;, color=&quot;blue&quot;];
+    Model -&gt; Alignment [label=&quot;instruction-accurate\nside channel trace&quot;, color=&quot;blue&quot;];
+    Alignment -&gt; &quot;Training data&quot; [label=&quot;instructions annoted\nwith acquired side channel&quot;];
+    &quot;Firmware builder&quot; -&gt; &quot;Real target&quot; [label=&quot;machine code&quot;];
+    &quot;Real target&quot; -&gt; Acquisition [label=&quot;side channel&quot;];
+    Acquisition -&gt; Alignment [label=&quot;cycle-accurate\nside channel trace&quot;];
+}" class="graphviz" /></div>
+<p>The following script generates a set of data using this pipeline.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="ch">#!/usr/bin/env python3</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  4</span><span class="sd">Build a dataset using acquisitions and side channel simulator data.</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="sd">Acquisition samples/cycle must match simulator.</span>
+<span class="linenos">  7</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos"> 10</span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="linenos"> 11</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos"> 12</span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="linenos"> 13</span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="kn">import</span> <span class="nn">dtw</span>
+<span class="linenos"> 16</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 17</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span><span class="kn">import</span> <span class="nn">abby</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="k">def</span> <span class="nf">acquisition_simulation_to_dataset</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+<span class="linenos"> 23</span>    <span class="sd">&quot;&quot;&quot;Align acquisition and simulation using Dynamic Time Warping.</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="sd">    :param paths: pair of acquisition, simulation and output</span>
+<span class="linenos"> 26</span><span class="sd">    :type paths: (str, str, str)</span>
+<span class="linenos"> 27</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos"> 28</span>    <span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+<span class="linenos"> 29</span>    <span class="n">path_acq</span><span class="p">,</span> <span class="n">path_sim</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">paths</span>
+<span class="linenos"> 30</span>    <span class="n">acquisition</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path_acq</span><span class="p">)</span>
+<span class="linenos"> 31</span>    <span class="n">simulation</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_sim</span><span class="p">)</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span>    <span class="c1"># Create a non cycle-accurate power trace using estimated power</span>
+<span class="linenos"> 34</span>    <span class="n">trace_elmo</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 35</span>    <span class="n">trace_elmo_row</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 36</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">simulation</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+<span class="linenos"> 37</span>        <span class="c1"># trace_elmo += [row[&quot;power&quot;]] * int(row[&quot;nb_cycles&quot;])</span>
+<span class="linenos"> 38</span>        <span class="c1"># trace_elmo_row += [row] * int(row[&quot;nb_cycles&quot;])</span>
+<span class="linenos"> 39</span>        <span class="c1"># Ignore nb cycles</span>
+<span class="linenos"> 40</span>        <span class="n">trace_elmo</span> <span class="o">+=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;power&quot;</span><span class="p">]]</span>
+<span class="linenos"> 41</span>        <span class="n">trace_elmo_row</span> <span class="o">+=</span> <span class="p">[</span><span class="n">row</span><span class="p">]</span>
+<span class="linenos"> 42</span>    <span class="n">df</span> <span class="o">=</span> <span class="n">simulation</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="s2">&quot;nb_cycles&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="linenos"> 43</span>
+<span class="linenos"> 44</span>    <span class="c1"># DTW alignment</span>
+<span class="linenos"> 45</span>    <span class="c1"># log.debug(&quot;Aligning traces with DTW&quot;)</span>
+<span class="linenos"> 46</span>    <span class="c1"># TODO: maybe we can use something better that euclidean,</span>
+<span class="linenos"> 47</span>    <span class="c1"># https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cdist.html</span>
+<span class="linenos"> 48</span>    <span class="n">alignment</span> <span class="o">=</span> <span class="n">dtw</span><span class="o">.</span><span class="n">dtw</span><span class="p">(</span>
+<span class="linenos"> 49</span>        <span class="n">x</span><span class="o">=</span><span class="n">acquisition</span><span class="p">,</span>  <span class="c1"># query</span>
+<span class="linenos"> 50</span>        <span class="n">y</span><span class="o">=</span><span class="n">trace_elmo</span><span class="p">,</span>  <span class="c1"># reference</span>
+<span class="linenos"> 51</span>        <span class="n">keep_internals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 52</span>        <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>  <span class="c1"># see scipy.spatial.distance.cdist</span>
+<span class="linenos"> 53</span>        <span class="c1"># asymmetric: slope constrained between 0 and 2</span>
+<span class="linenos"> 54</span>        <span class="c1"># Matches each element of the query time series exactly once,</span>
+<span class="linenos"> 55</span>        <span class="c1"># so the warping path index2~index1 is guaranteed to be single-valued.</span>
+<span class="linenos"> 56</span>        <span class="c1"># Normalized by N (length of query).</span>
+<span class="linenos"> 57</span>        <span class="n">step_pattern</span><span class="o">=</span><span class="s2">&quot;asymmetric&quot;</span><span class="p">,</span>
+<span class="linenos"> 58</span>        <span class="n">window_type</span><span class="o">=</span><span class="s2">&quot;slantedband&quot;</span><span class="p">,</span>
+<span class="linenos"> 59</span>        <span class="n">window_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;window_size&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+<span class="linenos"> 60</span>    <span class="p">)</span>
+<span class="linenos"> 61</span>    <span class="c1"># log.info(f&quot;Distance from real trace: {alignment.normalizedDistance:.6f}&quot;)</span>
+<span class="linenos"> 62</span>
+<span class="linenos"> 63</span>    <span class="c1"># Annotate instructions</span>
+<span class="linenos"> 64</span>    <span class="c1"># This code updates the dataframe with the number of cycles</span>
+<span class="linenos"> 65</span>    <span class="c1"># log.debug(&quot;Updating instructions trace with found cycles count&quot;)</span>
+<span class="linenos"> 66</span>    <span class="n">last_index1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos"> 67</span>    <span class="n">last_n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="linenos"> 68</span>    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;nb_cycles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos"> 69</span>    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;power&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="linenos"> 70</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alignment</span><span class="o">.</span><span class="n">index1</span><span class="p">)):</span>
+<span class="linenos"> 71</span>        <span class="n">x</span><span class="p">,</span> <span class="n">index1</span> <span class="o">=</span> <span class="n">alignment</span><span class="o">.</span><span class="n">index1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alignment</span><span class="o">.</span><span class="n">index2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos"> 72</span>        <span class="k">if</span> <span class="n">index1</span> <span class="o">!=</span> <span class="n">last_index1</span><span class="p">:</span>
+<span class="linenos"> 73</span>            <span class="n">last_index1</span> <span class="o">=</span> <span class="n">index1</span>
+<span class="linenos"> 74</span>            <span class="n">row</span> <span class="o">=</span> <span class="n">trace_elmo_row</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span>
+<span class="linenos"> 75</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 76</span>            <span class="c1"># A cycle was added to last instruction</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>            <span class="c1"># increase nb of cycles in dataset</span>
+<span class="linenos"> 79</span>            <span class="n">n</span> <span class="o">=</span> <span class="n">trace_elmo_row</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+<span class="linenos"> 80</span>            <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;nb_cycles&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 81</span>            <span class="k">continue</span>
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span>        <span class="k">if</span> <span class="n">last_n</span> <span class="o">==</span> <span class="n">row</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+<span class="linenos"> 84</span>            <span class="k">continue</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span>        <span class="n">last_n</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">name</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span>        <span class="c1"># store power in dataset</span>
+<span class="linenos"> 89</span>        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;power&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acquisition</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="linenos"> 92</span>    <span class="c1"># TODO: df = df.fillna(method=&quot;pad&quot;)</span>
+<span class="linenos"> 93</span>    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">opt</span><span class="p">):</span>
+<span class="linenos"> 97</span>    <span class="c1"># Create destination folder if missing</span>
+<span class="linenos"> 98</span>    <span class="n">dest</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
+<span class="linenos"> 99</span>    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span>    <span class="c1"># Run alignment process for each pair of (acquisition, simulation)</span>
+<span class="linenos">102</span>    <span class="n">acquisition_wildcard</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">input_acquisition</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;*.npy&quot;</span><span class="p">)</span>
+<span class="linenos">103</span>    <span class="n">simulation_wildcard</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">input_simulation</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;*.csv&quot;</span><span class="p">)</span>
+<span class="linenos">104</span>    <span class="n">acquisitions</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">acquisition_wildcard</span><span class="p">))</span>
+<span class="linenos">105</span>    <span class="n">simulations</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">simulation_wildcard</span><span class="p">))</span>
+<span class="linenos">106</span>    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">dest</span> <span class="o">/</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">p_sim</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p_sim</span> <span class="ow">in</span> <span class="n">simulations</span><span class="p">]</span>
+<span class="linenos">107</span>    <span class="n">paths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">acquisitions</span><span class="p">,</span> <span class="n">simulations</span><span class="p">,</span> <span class="n">outputs</span><span class="p">))</span>
+<span class="linenos">108</span>    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
+<span class="linenos">109</span>        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">acquisition_simulation_to_dataset</span><span class="p">,</span> <span class="n">paths</span><span class="p">)</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">113</span>    <span class="c1"># Arguments parser</span>
+<span class="linenos">114</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="linenos">115</span>        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Create a new dataset using real target and model.&quot;</span><span class="p">,</span>
+<span class="linenos">116</span>    <span class="p">)</span>
+<span class="linenos">117</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">118</span>        <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
+<span class="linenos">119</span>        <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
+<span class="linenos">120</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos">121</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">122</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;silent mode: hide info and warnings, overrides debug&quot;</span><span class="p">,</span>
+<span class="linenos">123</span>    <span class="p">)</span>
+<span class="linenos">124</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">125</span>        <span class="s2">&quot;--debug&quot;</span><span class="p">,</span>
+<span class="linenos">126</span>        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+<span class="linenos">127</span>        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">128</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;debug mode: show debug messages&quot;</span><span class="p">,</span>
+<span class="linenos">129</span>    <span class="p">)</span>
+<span class="linenos">130</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">131</span>        <span class="s2">&quot;-ia&quot;</span><span class="p">,</span>
+<span class="linenos">132</span>        <span class="s2">&quot;--input_acquisition&quot;</span><span class="p">,</span>
+<span class="linenos">133</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">134</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;folder containing acquisition data in Numpy format&quot;</span><span class="p">,</span>
+<span class="linenos">135</span>    <span class="p">)</span>
+<span class="linenos">136</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">137</span>        <span class="s2">&quot;-is&quot;</span><span class="p">,</span>
+<span class="linenos">138</span>        <span class="s2">&quot;--input_simulation&quot;</span><span class="p">,</span>
+<span class="linenos">139</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">140</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;folder containing simulation data in CSV format&quot;</span><span class="p">,</span>
+<span class="linenos">141</span>    <span class="p">)</span>
+<span class="linenos">142</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="linenos">143</span>        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+<span class="linenos">144</span>        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+<span class="linenos">145</span>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">146</span>        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;destination folder for saved datasets&quot;</span><span class="p">,</span>
+<span class="linenos">147</span>    <span class="p">)</span>
+<span class="linenos">148</span>    <span class="n">options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">149</span>    <span class="n">abby</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setup_logger</span><span class="p">(</span><span class="s2">&quot;abby&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">.</span><span class="n">quiet</span><span class="p">,</span> <span class="n">options</span><span class="o">.</span><span class="n">debug</span><span class="p">)</span>
+<span class="linenos">150</span>    <span class="n">main</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="aligning-with-a-tracing-probe">
+<h2>Aligning with a tracing probe<a class="headerlink" href="#aligning-with-a-tracing-probe" title="Permalink to this headline">¶</a></h2>
+<p>Using a tracing probe such as the Segger J-Trace it is possible to know
+how many cycles each instruction took.</p>
+<div class="graphviz"><img src="../_images/graphviz-8261ee8fc164a3080c5500f4f696db8afadd6115.png" alt="digraph dataset_pipeline {
+    &quot;Tracing probe&quot; [color=&quot;blue&quot;];
+    Alignment -&gt; &quot;Training data&quot; [label=&quot;instructions annoted\nwith acquired side channel&quot;];
+    &quot;Firmware builder&quot; -&gt; &quot;Real target&quot; [label=&quot;machine code&quot;];
+    &quot;Real target&quot; -&gt; Acquisition [label=&quot;side channel&quot;];
+    &quot;Real target&quot; -&gt; &quot;Tracing probe&quot; [label=&quot;debug interface&quot;, color=&quot;blue&quot;];
+    &quot;Tracing probe&quot; -&gt; Alignment [label=&quot;number of cycles\nfor each instruction&quot;, color=&quot;blue&quot;];
+    Acquisition -&gt; Alignment [label=&quot;cycle-accurate\nside channel trace&quot;];
+}" class="graphviz" /></div>
+<div class="section" id="tracing-setup">
+<h3>Tracing setup<a class="headerlink" href="#tracing-setup" title="Permalink to this headline">¶</a></h3>
+<p>In this section we describe the setup using a Segger J-Trace, but this should
+be similar to other tracing probes.</p>
+<p>When connected the probe, please note that the 20-pin 0.1’’ JTAG connector does
+not carry trace data. On J-Trace, only the 19-pin 0.05’’ Samtec FTSH connector
+can be used to trace.</p>
+<p>You might need
+<a class="reference external" href="https://www.segger.com/products/debug-probes/j-link/accessories/adapters/19-pin-cortex-m-adapter/">an adaptor</a>
+to adapt the 19-pin 0.05’’ to 20-pin 0.1’’.
+Then you will need to manually solder the tracing data and clock pins.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/trace_19pin_connector.svg"><img alt="Tracing pins on 19-pin 0.05'' Samtec FTSH connector" src="../_images/trace_19pin_connector.svg" width="220" /></a>
+<p class="caption"><span class="caption-text">Tracing pins on 19-pin 0.05’’ Samtec FTSH connector.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>On most ST STM32F4, the tracing pins are located on <code class="docutils literal notranslate"><span class="pre">GPIOE</span></code> device. You should
+double check with your specific target.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="training.html" class="btn btn-neutral float-right" title="Models training" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="acquisition.html" class="btn btn-neutral float-left" title="Traces acquisition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

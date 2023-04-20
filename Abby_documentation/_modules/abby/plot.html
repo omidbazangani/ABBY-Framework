@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.plot &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>abby.plot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.plot</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Plotting helpers.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="plot_ttest"><a class="viewcode-back" href="../../modules/extra/plot.html#abby.plot.plot_ttest">[docs]</a><span class="k">def</span> <span class="nf">plot_ttest</span><span class="p">(</span><span class="n">ttest</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot t-test result on current Matplotlib figure.</span>
+
+<span class="sd">    This helper function adds the 4.5 threshold line (99.999% confidence) and</span>
+<span class="sd">    do some common formatting.</span>
+
+<span class="sd">    :param ttest: t-test result</span>
+<span class="sd">    :type ttest: [float] or np.ndarray</span>
+<span class="sd">    :param x_axis: X-axis used for plotting, defaults to simple range</span>
+<span class="sd">    :type x_axis: [float] or np.ndarray, optional</span>
+<span class="sd">    :param xlim: X-axis range to plot, defaults to full range</span>
+<span class="sd">    :type xlim: (float, float), optional</span>
+<span class="sd">    :param absolute: plot absolute value of t-test, defaults to False</span>
+<span class="sd">    :type absolute: bool, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
+        <span class="c1"># Compute t-test absolute value</span>
+        <span class="n">ttest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ttest</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;absolute of t-test&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;t-test value&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x_axis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Default to simple range</span>
+        <span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ttest</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">ttest</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Set X-axis range</span>
+    <span class="k">if</span> <span class="n">xlim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="n">x_axis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_axis</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
+        <span class="c1"># Start from 1 when plotting with log scale</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="plot_fourier"><a class="viewcode-back" href="../../modules/extra/plot.html#abby.plot.plot_fourier">[docs]</a><span class="k">def</span> <span class="nf">plot_fourier</span><span class="p">(</span>
+    <span class="n">trace</span><span class="p">,</span>
+    <span class="n">freq_estimated</span><span class="o">=</span><span class="mf">8e6</span><span class="p">,</span>
+    <span class="n">freq_precision</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="o">=</span><span class="mf">500e6</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot trace and Fourier transform on current Matplotlib figure.</span>
+
+<span class="sd">    The Fourier transform of trace should contain a spike at target clock</span>
+<span class="sd">    frequency. You can use this function to inspect your target clock</span>
+<span class="sd">    frequency.</span>
+
+<span class="sd">    For example::</span>
+
+<span class="sd">        &gt;&gt;&gt; plt.figure(figsize=(16,10))</span>
+<span class="sd">        &gt;&gt;&gt; abby.plot.plot_fourier(trace)</span>
+<span class="sd">        &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    :param trace: side-channel trace to inspect</span>
+<span class="sd">    :type trace: [float] or np.ndarray</span>
+<span class="sd">    :param freq_estimated: estimated clock frequency in Hz, defaults to 8 MHz</span>
+<span class="sd">    :type freq_estimated: float, optional</span>
+<span class="sd">    :param freq_precision: clock frequency precision in Hz, defaults to 1 kHz</span>
+<span class="sd">    :type freq_precision: float, optional</span>
+<span class="sd">    :param threshold: threshold line for spikes detection, defaults to 0.0002</span>
+<span class="sd">    :type threshold: float, optional</span>
+<span class="sd">    :param sample_rate: trace sampling rate in Hz, defaults to 500 MHz</span>
+<span class="sd">    :type sample_rate: float, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Plot trace</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">))</span> <span class="o">/</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">trace</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time (s)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Compute FFT, normalize by dividing by trace length</span>
+    <span class="n">fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">sample_rate</span><span class="p">)</span>
+
+    <span class="c1"># Plot FFT</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;f (Hz)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">freq_estimated</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">))</span>
+
+    <span class="c1"># Plot zoomed FFT</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;f (Hz)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">freq_estimated</span> <span class="o">-</span> <span class="n">freq_precision</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">freq_estimated</span> <span class="o">+</span> <span class="n">freq_precision</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">freq_estimated</span> <span class="o">-</span> <span class="n">freq_precision</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span>
+            <span class="n">freq_estimated</span> <span class="o">+</span> <span class="n">freq_precision</span> <span class="o">*</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="instruction_frequency_table"><a class="viewcode-back" href="../../modules/extra/plot.html#abby.plot.instruction_frequency_table">[docs]</a><span class="k">def</span> <span class="nf">instruction_frequency_table</span><span class="p">(</span>
+    <span class="n">execution_trace</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;instr_stage3&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;instr_stage2&quot;</span><span class="p">,</span> <span class="n">instructions</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Generate HTML table with each couple of instructions frequency.</span>
+
+<span class="sd">    :param execution_trace: execution trace to analyse</span>
+<span class="sd">    :type execution_trace: pandas.DataFrame</span>
+<span class="sd">    :param x: vertical axis of table, defaults to &quot;instr_stage3&quot;</span>
+<span class="sd">    :type x: str, optional</span>
+<span class="sd">    :param y: horizontal axis of table, defaults to &quot;instr_stage2&quot;</span>
+<span class="sd">    :type y: str, optional</span>
+<span class="sd">    :param instructions: list of instruction to show, defaults to automatic</span>
+<span class="sd">    :type instructions: [str], optional</span>
+<span class="sd">    :return: HTML code</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;meta charset=&quot;utf-8&quot;&gt;</span><span class="se">\n</span><span class="s2">&lt;style&gt;</span>
+<span class="s2">    /* Table style */</span>
+<span class="s2">    table { border-collapse: collapse; }</span>
+<span class="s2">    td { height: 20px; padding: 0; }</span>
+<span class="s2">    th { padding: 0 1px; font-size: 9pt; }</span>
+<span class="s2">    td div { height: inherit; }</span>
+<span class="s2">    &lt;/style&gt;&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">c_format</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Format number as a HTML square.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&lt;div style=&quot;background:rgb(</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">)&quot;&gt;&lt;/div&gt;&#39;</span>
+
+    <span class="c1"># Count instructions</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">execution_trace</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">freqs</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="c1"># Reindex and replace NaN</span>
+    <span class="k">if</span> <span class="n">instructions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">new_index</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">instructions</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">instructions</span><span class="p">]</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">freqs</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span>
+    <span class="n">freqs</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Generate table</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">freqs</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">header</span> <span class="o">+</span> <span class="n">freqs</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span>
+        <span class="n">formatters</span><span class="o">=</span><span class="p">[</span><span class="n">c_format</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+        <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

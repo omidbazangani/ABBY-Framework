@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Firmware &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Emulators" href="emulator.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="../guide/faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-flashing-process">Building and flashing process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-support">Target support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-padding">Code padding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flashing-and-execution">Flashing and execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-abby.firmware.blockcipher">Available block ciphers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-abby.firmware.generate">Assembly code generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Target support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Firmware</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/modules/firmware.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="firmware">
+<span id="id1"></span><h1>Firmware<a class="headerlink" href="#firmware" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-abby.firmware"></span><p>Abby comes with a device-agnostic firmware that can run multiple block ciphers
+and can be flashed on a large variety of boards.
+This firmware is meant to be used to generate training or evaluation data for
+side-channel models.</p>
+<div class="section" id="building-and-flashing-process">
+<h2>Building and flashing process<a class="headerlink" href="#building-and-flashing-process" title="Permalink to this headline">¶</a></h2>
+<p>To simplify build and flashing process, Abby uses
+<a class="reference external" href="https://platformio.org/">PlatformIO</a>.
+This tool provides a common abstraction over multiples boards.
+Depending on targeted board, it will automatically download matching
+cross-compilation toolchain and flashing utilities.</p>
+<p>Each board is in a separate PlatformIO environment such as <code class="docutils literal notranslate"><span class="pre">disco_f051r8</span></code>.
+The algorithm is given to PlatformIO via <code class="docutils literal notranslate"><span class="pre">PLATFORMIO_ALGORITHM</span></code> environment
+variable.</p>
+<p>To manually use PlatformIO without Abby scripts, you can go to <code class="docutils literal notranslate"><span class="pre">abby/firmware</span></code>
+then launch <code class="docutils literal notranslate"><span class="pre">PLATFORMIO_ALGORITHM=tinyaes</span> <span class="pre">pio</span> <span class="pre">run</span> <span class="pre">-t</span> <span class="pre">upload</span> <span class="pre">-e</span> <span class="pre">disco_f051r8</span></code>
+to flash TinyAES on a ST STM32F051 Discovery.</p>
+</div>
+<div class="section" id="target-support">
+<h2>Target support<a class="headerlink" href="#target-support" title="Permalink to this headline">¶</a></h2>
+<p>For now this firmware supports only Arduino and LibOpenCM3 frameworks to target
+a large variety of boards.</p>
+<p>These boards are supported and tested:</p>
+<ul class="simple">
+<li><p>ST Discovery STM32F051 and STM32F030 (<code class="docutils literal notranslate"><span class="pre">disco_f051r8</span></code>)</p></li>
+</ul>
+<p>These boards are implemented but not tested yet:</p>
+<ul class="simple">
+<li><p>Waveshare Core407I or Riscure Piñata, STM32F407IGT6 (<code class="docutils literal notranslate"><span class="pre">genericSTM32F407IGT6</span></code>)</p></li>
+<li><p>BBC Micro:bit v1, Nordic nRF51822 (<code class="docutils literal notranslate"><span class="pre">bbcmicrobit</span></code>)</p></li>
+</ul>
+</div>
+<div class="section" id="code-padding">
+<h2>Code padding<a class="headerlink" href="#code-padding" title="Permalink to this headline">¶</a></h2>
+<p>After sending some input data, the firmware runs :</p>
+<ul class="simple">
+<li><p>500 <code class="docutils literal notranslate"><span class="pre">NOP</span></code> instructions,</p></li>
+<li><p>the selected algorithm,</p></li>
+<li><p>500 <code class="docutils literal notranslate"><span class="pre">NOP</span></code> instructions again.</p></li>
+</ul>
+<p>On ARM Cortex-M0, <code class="docutils literal notranslate"><span class="pre">NOP</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">MOV</span> <span class="pre">r8,</span> <span class="pre">r8</span></code>.
+Using <code class="docutils literal notranslate"><span class="pre">NOP</span></code>, we are adding a reference to ease debugging and alignment.
+We also make sure that the instructions triggering acquisitions do not effect
+acquired data as activating a GPIO may have an effect on the beginning of the
+trace.</p>
+</div>
+<div class="section" id="flashing-and-execution">
+<h2>Flashing and execution<a class="headerlink" href="#flashing-and-execution" title="Permalink to this headline">¶</a></h2>
+<p>These functions enables you to choose a block cipher and build and flash it.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.firmware.get_blockcipher">
+<span class="sig-prename descclassname"><span class="pre">abby.firmware.</span></span><span class="sig-name descname"><span class="pre">get_blockcipher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></a><a class="reference internal" href="../_modules/abby/firmware.html#get_blockcipher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.get_blockcipher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a block cipher by name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of the block cipher to get</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – cipher not found</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>block cipher object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher">blockcipher.BlockCipher</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.firmware.pio_run">
+<span class="sig-prename descclassname"><span class="pre">abby.firmware.</span></span><span class="sig-name descname"><span class="pre">pio_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qemu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pathlib.Path</span><a class="reference internal" href="../_modules/abby/firmware.html#pio_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.pio_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run one PlatformIO environment and return path to built firmware.</p>
+<p>PlatformIO is written in Python, but lacks an API. A workaround is to
+manually call run Click command with arguments. By doing this we will
+still compatible with different versions.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">elmo=True</span></code> you can compile a firmware calling ELMO specific code
+and disable some board specific code that interfere with ELMO such as
+<code class="docutils literal notranslate"><span class="pre">gpio_set</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>env</strong> (<em>str</em>) – name of the PlatformIO environment to run</p></li>
+<li><p><strong>algorithm</strong> (<a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><em>blockcipher.BlockCipher</em></a>) – algorithm to use</p></li>
+<li><p><strong>upload</strong> (<em>bool</em><em>, </em><em>optional</em>) – uploads firmware to the first board found by PlatformIO,
+defaults to False</p></li>
+<li><p><strong>elmo</strong> (<em>bool</em><em>, </em><em>optional</em>) – compiles firmware with <code class="docutils literal notranslate"><span class="pre">-DELMO</span></code> option, defaults to False</p></li>
+<li><p><strong>qemu</strong> (<em>bool</em><em>, </em><em>optional</em>) – compiles firmware with <code class="docutils literal notranslate"><span class="pre">-DQEMU</span></code> option, defaults to False</p></li>
+<li><p><strong>debug</strong> (<em>bool</em><em>, </em><em>optional</em>) – outputs compilation logs, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ImportError</strong> – when PlatformIO is missing</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to built firmware</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-abby.firmware.blockcipher">
+<span id="available-block-ciphers"></span><h2>Available block ciphers<a class="headerlink" href="#module-abby.firmware.blockcipher" title="Permalink to this headline">¶</a></h2>
+<p>You may use <code class="xref py py-data docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.blockciphers</span></code> to get the list of
+available ciphers.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">BlockCipher</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#BlockCipher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all block ciphers</p>
+<p>All lengths are in bytes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.get_input_length">
+<span class="sig-name descname"><span class="pre">get_input_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#BlockCipher.get_input_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.get_input_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get total input length</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>input length</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.mask_length">
+<span class="sig-name descname"><span class="pre">mask_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.mask_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.BlockCipher.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">''</span></em><a class="headerlink" href="#abby.firmware.blockcipher.BlockCipher.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">ByteMaskedAES</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#ByteMaskedAES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Byte-Masked-AES from
+<a class="reference external" href="https://github.com/Secure-Embedded-Systems/Masked-AES-Implementation/">https://github.com/Secure-Embedded-Systems/Masked-AES-Implementation/</a></p>
+<p>ByteMaskedAES is licensed under GPL3+ by Virginia Tech.</p>
+<p>This is a masked implementation of AES-128bits.
+The computed intermediate values are XOR with a mask to reduce leakage when
+reading or writing to memory.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES.get_sbox_output">
+<span class="sig-name descname"><span class="pre">get_sbox_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#ByteMaskedAES.get_sbox_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES.get_sbox_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get first round Sbox output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>bytes</em>) – key</p></li>
+<li><p><strong>mask</strong> (<em>bytes</em>) – mask</p></li>
+<li><p><strong>msg</strong> (<em>bytes</em>) – cleartext</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>first sbox output</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES.mask_length">
+<span class="sig-name descname"><span class="pre">mask_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES.mask_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ByteMaskedAES.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'byte-masked-aes'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ByteMaskedAES.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha20">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">ChaCha20</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#ChaCha20"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha20" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Chacha20 from <a class="reference external" href="https://cr.yp.to/chacha.html">https://cr.yp.to/chacha.html</a></p>
+<p>Chacha20 is licensed under Public domain by D. J. Bernstein.</p>
+<p>ChaCha is a modification of Salsa20.
+The round function uses modular Additions, Rotations and XOR (ARX block
+cipher).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha20.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha20.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha20.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha20.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha20.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha20.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha20.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'chacha20'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha20.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha8">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">ChaCha8</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#ChaCha8"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Chacha8 from <a class="reference external" href="https://cr.yp.to/chacha.html">https://cr.yp.to/chacha.html</a></p>
+<p>Chacha8 is licensed under Public domain by D. J. Bernstein.</p>
+<p>ChaCha is a modification of Salsa20.
+The round function uses modular Additions, Rotations and XOR (ARX block
+cipher).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha8.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha8.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha8.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha8.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha8.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha8.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.ChaCha8.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'chacha8'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.ChaCha8.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.GeneratedCode">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">GeneratedCode</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#GeneratedCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.GeneratedCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Generate random assembly code.</p>
+<p>See <a class="reference internal" href="#abby.firmware.generate.generate" title="abby.firmware.generate.generate"><code class="xref py py-func docutils literal notranslate"><span class="pre">abby.firmware.generate.generate()</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.GeneratedCode.count">
+<span class="sig-name descname"><span class="pre">count</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1000</span></em><a class="headerlink" href="#abby.firmware.blockcipher.GeneratedCode.count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.GeneratedCode.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.GeneratedCode.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.GeneratedCode.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'generated-code'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.GeneratedCode.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.GeneratedCode.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#abby.firmware.blockcipher.GeneratedCode.seed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Rabbit">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">Rabbit</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#Rabbit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.Rabbit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Rabbit from <a class="reference external" href="https://bench.cr.yp.to/supercop.html">https://bench.cr.yp.to/supercop.html</a></p>
+<p>Rabbit is licensed for non commercial use by Cryptico A/S.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Rabbit.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Rabbit.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Rabbit.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Rabbit.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Rabbit.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Rabbit.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Rabbit.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'rabbit'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Rabbit.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Salsa20">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">Salsa20</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#Salsa20"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.Salsa20" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Salsa20 from <a class="reference external" href="https://bench.cr.yp.to/supercop.html">https://bench.cr.yp.to/supercop.html</a></p>
+<p>Salsa20 is licensed under Public domain by D. J. Bernstein.</p>
+<p>The round function uses modular Additions, Rotations and XOR (ARX block
+cipher).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Salsa20.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Salsa20.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Salsa20.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Salsa20.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Salsa20.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">8</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Salsa20.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Salsa20.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'salsa20'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Salsa20.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Sosemanuk">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">Sosemanuk</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#Sosemanuk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.Sosemanuk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Sosemanuk from <a class="reference external" href="https://bench.cr.yp.to/supercop.html">https://bench.cr.yp.to/supercop.html</a></p>
+<p>Sosemanuk was written by X-CRYPT project.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Sosemanuk.iv_length">
+<span class="sig-name descname"><span class="pre">iv_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Sosemanuk.iv_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Sosemanuk.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">32</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Sosemanuk.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Sosemanuk.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">10</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Sosemanuk.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Sosemanuk.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'sosemanuk'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Sosemanuk.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.TinyAES">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">TinyAES</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#TinyAES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.TinyAES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>TinyAES from <a class="reference external" href="https://github.com/kokke/tiny-AES-c/">https://github.com/kokke/tiny-AES-c/</a></p>
+<p>TinyAES is licensed under The Unlicense.</p>
+<p>This is an unprotected implementation of AES-128bits.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.TinyAES.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.TinyAES.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.TinyAES.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.TinyAES.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.TinyAES.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'tinyaes'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.TinyAES.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Xoodoo">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">abby.firmware.blockcipher.</span></span><span class="sig-name descname"><span class="pre">Xoodoo</span></span><a class="reference internal" href="../_modules/abby/firmware/blockcipher.html#Xoodoo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.blockcipher.Xoodoo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abby.firmware.blockcipher.BlockCipher" title="abby.firmware.blockcipher.BlockCipher"><code class="xref py py-class docutils literal notranslate"><span class="pre">abby.firmware.blockcipher.BlockCipher</span></code></a></p>
+<p>Xoodoo from <a class="reference external" href="https://github.com/0xADE1A1DE/Rosita/tree/master/TESTS/xoodoo/">https://github.com/0xADE1A1DE/Rosita/tree/master/TESTS/xoodoo/</a></p>
+<p>This version of Xoodoo is licensed under Apache 2.0 by ROSITA authors.</p>
+<p>This is a masked implementation of Xoodoo primitives.
+The computed intermediate values are XOR with a mask to reduce leakage when
+reading or writing to memory.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Xoodoo.key_length">
+<span class="sig-name descname"><span class="pre">key_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Xoodoo.key_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Xoodoo.mask_length">
+<span class="sig-name descname"><span class="pre">mask_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">48</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Xoodoo.mask_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Xoodoo.msg_length">
+<span class="sig-name descname"><span class="pre">msg_length</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Xoodoo.msg_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="abby.firmware.blockcipher.Xoodoo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'xoodoo'</span></em><a class="headerlink" href="#abby.firmware.blockcipher.Xoodoo.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abby.firmware.generate">
+<span id="assembly-code-generation"></span><h2>Assembly code generation<a class="headerlink" href="#module-abby.firmware.generate" title="Permalink to this headline">¶</a></h2>
+<p>Generate random code for training data acquisition.</p>
+<p>To manually generate the code and check which instructions are generated,
+you may use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> abby/firmware
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.platformio/packages/toolchain-gccarmnoneeabi/bin/:<span class="nv">$PATH</span>
+./generate.py
+arm-none-eabi-gcc -c -g lib/generated-code/generated.S <span class="s1">&#39;-DGENERATED_PATH=&quot;generated_code.S&quot;&#39;</span> -o /tmp/tmp.o -mcpu<span class="o">=</span>cortex-m0
+arm-none-eabi-objdump -Sd /tmp/tmp.o <span class="p">|</span> less
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>Target support<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>For now this script only targets ARM Cortex-M0 assembler.</p>
+</div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.firmware.generate.generate">
+<span class="sig-prename descclassname"><span class="pre">abby.firmware.generate.</span></span><span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abby/firmware/generate.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.generate.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write generated assembly code to stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – seed used for random number generator, defaults to system time</p></li>
+<li><p><strong>count</strong> (<em>int</em><em>, </em><em>optional</em>) – number of instructions generated, defaults to 1000</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.firmware.generate.rand_op">
+<span class="sig-prename descclassname"><span class="pre">abby.firmware.generate.</span></span><span class="sig-name descname"><span class="pre">rand_op</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op1_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op2_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op3_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abby/firmware/generate.html#rand_op"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.firmware.generate.rand_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format assembly instruction operands using random value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instr</strong> (<em>str</em>) – instruction to format, containing <code class="docutils literal notranslate"><span class="pre">{op1}</span></code>, <code class="docutils literal notranslate"><span class="pre">{op2}</span></code> and
+<code class="docutils literal notranslate"><span class="pre">{op3}</span></code>.</p></li>
+<li><p><strong>op1_range</strong> (<em>tuple</em><em>, </em><em>optional</em>) – range of op1, defaults to (256,)</p></li>
+<li><p><strong>op2_range</strong> (<em>tuple</em><em>, </em><em>optional</em>) – range of op2, defaults to (256,)</p></li>
+<li><p><strong>op3_range</strong> (<em>tuple</em><em>, </em><em>optional</em>) – range of op3, defaults to (256,)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function returning assembly instruction with random operands</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>callable returning a str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="emulator.html" class="btn btn-neutral float-right" title="Emulators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../guide/faq.html" class="btn btn-neutral float-left" title="Frequently Asked Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

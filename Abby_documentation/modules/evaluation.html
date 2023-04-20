@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Evaluation &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extra modules" href="extra/index.html" />
+    <link rel="prev" title="Trace processing" href="processing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Trace processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Evaluation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/modules/evaluation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-abby.evaluation">
+<span id="evaluation"></span><h1>Evaluation<a class="headerlink" href="#module-abby.evaluation" title="Permalink to this headline">¶</a></h1>
+<p>Utilities to evaluate model quality.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.evaluation.correlation">
+<span class="sig-prename descclassname"><span class="pre">abby.evaluation.</span></span><span class="sig-name descname"><span class="pre">correlation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_samples</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="reference internal" href="../_modules/abby/evaluation.html#correlation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.evaluation.correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Pearson correlation coefficient at each index of traces set.</p>
+<p>To use this function to do a correlation attack, you can compute the Hamming
+weight of an intermediate value for each trace as reference_sample.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">abby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">traces</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>          <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intermediate_values</span> <span class="o">=</span> <span class="p">[</span><span class="mb">0b0</span><span class="p">,</span> <span class="mb">0b0</span><span class="p">,</span> <span class="mb">0b1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">hw</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="nb">sum</span><span class="p">((</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mb">0b1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reference_samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">hw</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">intermediate_values</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abby</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">correlation</span><span class="p">(</span><span class="n">traces</span><span class="p">,</span> <span class="n">reference_samples</span><span class="p">)</span>
+<span class="go">array([-0.5, -0.5, 0.5, -1.0, -0.5, 1.0])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traces</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>] or </em><em>np.ndarray</em>) – traces set</p></li>
+<li><p><strong>reference_samples</strong> (<em>[</em><em>float</em><em>] or </em><em>np.ndarray</em>) – reference to correlate, length should match the
+number of traces</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>correlation result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.evaluation.correlation_bruteforce_key_byte">
+<span class="sig-prename descclassname"><span class="pre">abby.evaluation.</span></span><span class="sig-name descname"><span class="pre">correlation_bruteforce_key_byte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inter_func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/abby/evaluation.html#correlation_bruteforce_key_byte"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.evaluation.correlation_bruteforce_key_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlate samples with all possibles values for key byte.</p>
+<p>Correlate samples with the Hamming weight of the intermediate values for
+all 256 values of the key byte. A key byte leading to a higher correlation
+has more probability to be the secret key byte.</p>
+<p>This function can be used when the evaluator knows the position of the
+leakage of one key byte and knows how to compute the intermediate value.</p>
+<p>You may plot the rank of the good key by the number of traces by repeating
+this evaluation with different number of traces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>[</em><em>float</em><em>]</em>) – samples to attack, one sample per trace</p></li>
+<li><p><strong>input_data</strong> (<em>[</em><em>any</em><em>]</em>) – input data used for each trace, passed to inter_func</p></li>
+<li><p><strong>inter_func</strong> (<em>callable</em>) – function to compute the intermediate value from
+input_data and key</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>correlation results for all 256 possibilities</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abby.evaluation.ttest">
+<span class="sig-prename descclassname"><span class="pre">abby.evaluation.</span></span><span class="sig-name descname"><span class="pre">ttest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace_set1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace_set2</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">numpy.ndarray</span><a class="reference internal" href="../_modules/abby/evaluation.html#ttest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#abby.evaluation.ttest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Welch’s t-test between two set of traces.</p>
+<p>When a set contains traces with a constant value at a specific index, the
+variance is null and a division by zero occurs. We choose to remplace these
+values by 0 as there is no leakage detected.</p>
+<p>You may use <a class="reference internal" href="extra/plot.html#abby.plot.plot_ttest" title="abby.plot.plot_ttest"><code class="xref py py-func docutils literal notranslate"><span class="pre">abby.plot.plot_ttest()</span></code></a> to visualize results.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">abby</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trace_set1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trace_set2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abby</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">ttest</span><span class="p">(</span><span class="n">trace_set1</span><span class="p">,</span> <span class="n">trace_set2</span><span class="p">)</span>
+<span class="go">array([0.,  0.,  0.,  0., -1.,  1.])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace_set1</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>] or </em><em>np.ndarray</em>) – set of traces</p></li>
+<li><p><strong>trace_set2</strong> (<em>[</em><em>[</em><em>float</em><em>]</em><em>] or </em><em>np.ndarray</em>) – set of traces</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>computed ttest</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="extra/index.html" class="btn btn-neutral float-right" title="Extra modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="processing.html" class="btn btn-neutral float-left" title="Trace processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

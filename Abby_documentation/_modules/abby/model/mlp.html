@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>abby.model.mlp &mdash; Abby  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/abby_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../what-is-abby.html">What is Abby?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick-start.html">Quick start</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/acquisition.html">Traces acquisition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/dataset-building.html">Training data creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/training.html">Models training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/simulation.html">Traces simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/evaluation.html">Model evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/emulator.html">Emulators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/processing.html">Trace processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/extra/index.html">Extra modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Abby</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../model.html">abby.model</a> &raquo;</li>
+        
+      <li>abby.model.mlp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for abby.model.mlp</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (C) 2020-2021 Radboud University</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MLP model</span>
+
+<span class="sd">You should NOT use Numpy or Pandas here, it does not scale up!</span>
+<span class="sd">Please use Tensorflow equivalents.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">abby.model.base</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="c1"># Local logger</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MlpModel"><a class="viewcode-back" href="../../../modules/model.html#abby.model.MlpModel">[docs]</a><span class="k">class</span> <span class="nc">MlpModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Multi-Layer Perceptron model</span>
+
+<span class="sd">    Placeholder for future implementation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">create</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize tensorflow model</span>
+
+<span class="sd">        :param path: path to load or save model</span>
+<span class="sd">        :type path: str</span>
+<span class="sd">        :param create: create new model without loading, defaults to False</span>
+<span class="sd">        :type create: bool, optional</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Load existing model</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">create</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_build_preprocessing_model</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Build preprocessing keras model.&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+        <span class="c1"># Do not process numeric inputs</span>
+        <span class="n">preprocessed_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">]</span>
+
+        <span class="c1"># Encode categorical features</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">StringLookup</span><span class="p">()(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">CategoryEncoding</span><span class="p">(</span>
+                <span class="n">max_tokens</span><span class="o">=</span><span class="mi">80</span>
+            <span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">preprocessed_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># Concatenate everything</span>
+        <span class="n">inputs_concat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Concatenate</span><span class="p">()(</span><span class="n">preprocessed_inputs</span><span class="p">)</span>
+        <span class="n">preprocessing_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">inputs_concat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">preprocessing_model</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_preprocess_data</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Preprocess data.&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+        <span class="c1"># Collect name of all 32bits features</span>
+        <span class="n">bin_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="nb">object</span><span class="p">]</span>
+
+        <span class="c1"># Create &quot;binary&quot; filter</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">bin_features</span><span class="p">:</span>
+            <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+            <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">bitwise</span><span class="o">.</span><span class="n">right_shift</span><span class="p">(</span>
+                <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">label</span>
+
+<div class="viewcode-block" id="MlpModel.predict"><a class="viewcode-back" href="../../../modules/model.html#abby.model.MlpModel.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Predict target using features</span>
+
+<span class="sd">        :param features: features to input to the model</span>
+<span class="sd">        :type features: pandas.DataFrame</span>
+<span class="sd">        :return: model prediction</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+        <span class="n">features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span>
+            <span class="p">{</span><span class="n">f</span><span class="p">:</span> <span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MlpModel.fit"><a class="viewcode-back" href="../../../modules/model.html#abby.model.MlpModel.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_files</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100000</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit model on target using provided data</span>
+
+<span class="sd">        For profiler support, if you get ``CUPTI_ERROR_INSUFFICIENT_PRIVILEGES``</span>
+<span class="sd">        then you might need to add an option to the nvidia kernel module.</span>
+<span class="sd">        Edit ``/etc/modprobe.d/nvidia-kernel-common.conf`` and add</span>
+<span class="sd">        ``options nvidia &quot;NVreg_RestrictProfilingToAdminUsers=0&quot;``.</span>
+<span class="sd">        Then rebuild your initramfs (``update-initramfs -u``) and reboot.</span>
+
+<span class="sd">        :param data_files: dataset files</span>
+<span class="sd">        :type data_files: [str]</span>
+<span class="sd">        :param test_size: portion of the dataset using for evaluation, default</span>
+<span class="sd">            to 0.2</span>
+<span class="sd">        :type test_size: float, optional</span>
+<span class="sd">        :param batch_size: number of records to combine in a single batch,</span>
+<span class="sd">            default to 100000</span>
+<span class="sd">        :type batch_size: int, optional</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+        <span class="c1"># Load CSV files in batch, shuffle and prefetch</span>
+        <span class="n">train_files</span> <span class="o">=</span> <span class="n">data_files</span><span class="p">[:</span> <span class="nb">int</span><span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_files</span><span class="p">))]</span>
+        <span class="n">validation_files</span> <span class="o">=</span> <span class="n">data_files</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">test_size</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_files</span><span class="p">))</span> <span class="p">:]</span>
+        <span class="n">train_set</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">make_csv_dataset</span><span class="p">(</span>
+                <span class="n">train_files</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="p">,</span>
+                <span class="n">label_name</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span>
+                <span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">num_parallel_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_data</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">validation_set</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">make_csv_dataset</span><span class="p">(</span>
+                <span class="n">validation_files</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="p">,</span>
+                <span class="n">label_name</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span>
+                <span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">num_parallel_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_data</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Symbolic keras.Input objects, matching the names and data-types of the</span>
+        <span class="c1"># CSV columns</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">features_set</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">features</span> <span class="ow">in</span> <span class="n">features_set</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">dtype</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">dtype</span>
+                <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
+                    <span class="n">inputs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+                        <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">inputs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+                        <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float16</span>
+                    <span class="p">)</span>
+
+        <span class="c1"># Build keras model</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">preprocessing_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_preprocessing_model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">preprocessed_inputs</span> <span class="o">=</span> <span class="n">preprocessing_model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">body</span><span class="p">(</span><span class="n">preprocessed_inputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+            <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">(),</span>
+            <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.003</span><span class="p">),</span>
+            <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">RootMeanSquaredError</span><span class="p">()],</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create callbacks</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">logdir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">tensorboard_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span>
+            <span class="n">log_dir</span><span class="o">=</span><span class="n">logdir</span><span class="p">,</span>
+            <span class="n">profile_batch</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">estop_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="n">checkpoint_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+            <span class="n">filepath</span><span class="o">=</span><span class="n">logdir</span> <span class="o">+</span> <span class="s2">&quot;/model_</span><span class="si">{epoch:02d}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># only save a model if `val_loss` has improved</span>
+            <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Validation is done after each epoch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+            <span class="n">train_set</span><span class="p">,</span>
+            <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+            <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_set</span><span class="p">,</span>
+            <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">tensorboard_callback</span><span class="p">,</span> <span class="n">estop_callback</span><span class="p">,</span> <span class="n">checkpoint_callback</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="MlpModel.save"><a class="viewcode-back" href="../../../modules/model.html#abby.model.MlpModel.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save model to path provided</span>
+
+<span class="sd">        You can append `.h5` to use the HDF5 standard.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Cannot save empty model.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saving power model at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_parent_folder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
